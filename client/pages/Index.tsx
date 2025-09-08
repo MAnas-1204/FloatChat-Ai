@@ -240,6 +240,7 @@ export default function Index() {
                 <p className="text-sm text-white/80">Live maps, profiles, and visuals that breathe with real ARGO data.</p>
               </div>
             </div>
+            <Bubbles className="opacity-20" />
           </div>
         </div>
       </section>
