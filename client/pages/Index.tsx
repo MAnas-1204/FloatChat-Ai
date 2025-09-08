@@ -214,9 +214,33 @@ export default function Index() {
       </section>
 
       {/* Teamname Banner */}
-      <section className="relative py-8">
+      <section className="relative py-16">
         <div className="container">
-          <div className="rounded-full border border-brand-aqua-start/30 bg-white/60 px-6 py-3 text-center text-sm font-semibold tracking-wide">Team: Oceanauts</div>
+          <div className="relative overflow-hidden rounded-3xl border border-brand-aqua-start/30 ring-1 ring-brand-aqua-start/20 bg-gradient-to-tr from-brand-aqua-start/10 to-brand-aqua-end/10 px-8 py-10 backdrop-blur">
+            <div className="absolute -inset-1 -z-10 opacity-60 blur-2xl [background:radial-gradient(600px_160px_at_20%_-40px,hsl(var(--brand-cyan)/.25),transparent_70%)]" />
+            <div className="text-center">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs text-white/80"><Sparkles className="h-3.5 w-3.5"/> Team</div>
+              <h3 className="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-brand-aqua-start via-brand-cyan to-brand-aqua-end">Oceanauts</h3>
+              <p className="mt-3 text-foreground/70 max-w-2xl mx-auto">We converse with the sea. Blending ocean science with AI storytelling to surface patterns hidden beneath the waves.</p>
+            </div>
+            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+              <div className="rounded-2xl border border-white/15 bg-white/40 p-4 backdrop-blur-sm">
+                <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white"><Waves className="h-5 w-5"/></div>
+                <h4 className="mt-3 font-semibold">Ocean-First Design</h4>
+                <p className="text-sm text-foreground/70">Every interaction feels like water—fluid, calm, and precise.</p>
+              </div>
+              <div className="rounded-2xl border border-white/15 bg-white/40 p-4 backdrop-blur-sm">
+                <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white"><Bot className="h-5 w-5"/></div>
+                <h4 className="mt-3 font-semibold">Human + AI</h4>
+                <p className="text-sm text-foreground/70">We craft conversations that turn data into narratives and decisions.</p>
+              </div>
+              <div className="rounded-2xl border border-white/15 bg-white/40 p-4 backdrop-blur-sm">
+                <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white"><Map className="h-5 w-5"/></div>
+                <h4 className="mt-3 font-semibold">Science in Motion</h4>
+                <p className="text-sm text-foreground/70">Live maps, profiles, and visuals that breathe with real ARGO data.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
