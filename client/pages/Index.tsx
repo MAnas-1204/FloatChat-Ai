@@ -128,7 +128,7 @@ export default function Index() {
       {/* Features */}
       <section id="features" className="relative bg-[radial-gradient(1000px_300px_at_50%_-60px,hsl(var(--brand-aqua-start)/0.15),transparent_70%)] py-20">
         <div className="container">
-          <h2 className="text-center text-3xl font-bold tracking-tight animate-fade-up inline-flex items-center gap-2 justify-center"><Sparkles className="h-6 w-6 text-brand-cyan"/> Capabilities</h2>
+          <h2 className="text-center text-3xl font-bold tracking-tight animate-fade-up inline-flex items-center gap-2 justify-center"><Sparkles className="h-6 w-6 text-brand-cyan"/> Features</h2>
           <div className="mt-10 rounded-3xl border border-brand-aqua-start/30 ring-1 ring-brand-aqua-start/20 bg-white/50 p-6 backdrop-blur-sm animate-fade-up">
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               <FeatureCard icon={<MessageSquare />} title="AI Chat" description="Ask natural questions about the ocean and float data." />
@@ -216,28 +216,28 @@ export default function Index() {
       {/* Teamname Banner */}
       <section className="relative py-16">
         <div className="container">
-          <div className="relative overflow-hidden rounded-3xl border border-brand-aqua-start/30 ring-1 ring-brand-aqua-start/20 bg-gradient-to-tr from-brand-aqua-start/10 to-brand-aqua-end/10 px-8 py-10 backdrop-blur">
-            <div className="absolute -inset-1 -z-10 opacity-60 blur-2xl [background:radial-gradient(600px_160px_at_20%_-40px,hsl(var(--brand-cyan)/.25),transparent_70%)]" />
+          <div className="relative overflow-hidden rounded-3xl border border-white/20 ring-1 ring-white/20 bg-[linear-gradient(135deg,hsl(var(--brand-ocean)),hsl(var(--brand-aqua-start)/.25))] px-8 py-10 backdrop-blur text-white">
+            <div className="absolute -inset-1 -z-10 opacity-60 blur-2xl [background:radial-gradient(600px_160px_at_20%_-40px,hsl(var(--brand-cyan)/.35),transparent_70%)]" />
             <div className="text-center">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs text-white/80"><Sparkles className="h-3.5 w-3.5"/> Team</div>
-              <h3 className="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-brand-aqua-start via-brand-cyan to-brand-aqua-end">Oceanauts</h3>
-              <p className="mt-3 text-foreground/70 max-w-2xl mx-auto">We converse with the sea. Blending ocean science with AI storytelling to surface patterns hidden beneath the waves.</p>
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs text-white/80"><Sparkles className="h-3.5 w-3.5"/> Team</div>
+              <h3 className="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight">Oceanauts</h3>
+              <p className="mt-3 text-white/80 max-w-2xl mx-auto">We converse with the sea. Blending ocean science with AI storytelling to surface patterns hidden beneath the waves.</p>
             </div>
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              <div className="rounded-2xl border border-white/15 bg-white/40 p-4 backdrop-blur-sm">
+              <div className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm">
                 <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white"><Waves className="h-5 w-5"/></div>
                 <h4 className="mt-3 font-semibold">Ocean-First Design</h4>
-                <p className="text-sm text-foreground/70">Every interaction feels like water—fluid, calm, and precise.</p>
+                <p className="text-sm text-white/80">Every interaction feels like water—fluid, calm, and precise.</p>
               </div>
-              <div className="rounded-2xl border border-white/15 bg-white/40 p-4 backdrop-blur-sm">
+              <div className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm">
                 <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white"><Bot className="h-5 w-5"/></div>
                 <h4 className="mt-3 font-semibold">Human + AI</h4>
-                <p className="text-sm text-foreground/70">We craft conversations that turn data into narratives and decisions.</p>
+                <p className="text-sm text-white/80">We craft conversations that turn data into narratives and decisions.</p>
               </div>
-              <div className="rounded-2xl border border-white/15 bg-white/40 p-4 backdrop-blur-sm">
+              <div className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm">
                 <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white"><Map className="h-5 w-5"/></div>
                 <h4 className="mt-3 font-semibold">Science in Motion</h4>
-                <p className="text-sm text-foreground/70">Live maps, profiles, and visuals that breathe with real ARGO data.</p>
+                <p className="text-sm text-white/80">Live maps, profiles, and visuals that breathe with real ARGO data.</p>
               </div>
             </div>
           </div>
@@ -246,8 +246,8 @@ export default function Index() {
 
       {/* CTA / Contact */}
       <section id="contact" className="relative py-20">
-        <div className="container grid items-center gap-8 rounded-3xl border border-brand-aqua-start/30 bg-gradient-to-tr from-brand-aqua-start/10 to-brand-aqua-end/10 p-8 ring-1 ring-brand-aqua-start/30 hover:ring-brand-aqua-end/40 transition md:grid-cols-3">
-          <div className="md:col-span-2 animate-fade-up">
+        <div className="container grid items-center gap-10 rounded-3xl border border-brand-aqua-start/30 bg-white/50 p-8 ring-1 ring-brand-aqua-start/20 md:grid-cols-2">
+          <div className="animate-fade-up">
             <h3 className="text-2xl font-bold tracking-tight inline-flex items-center gap-2"><Mail className="h-6 w-6 text-brand-cyan"/> Ready to Talk to the Ocean?</h3>
             <p className="mt-2 text-foreground/70">Get early access to the FloatChat demo and updates.</p>
             <form
@@ -274,7 +274,7 @@ export default function Index() {
               </button>
             </form>
           </div>
-          <div className="h-full w-full rounded-2xl bg-[radial-gradient(300px_120px_at_50%_-30px,hsl(var(--brand-cyan)/.25),transparent_70%)] animate-fade-up" />
+          <div className="h-full w-full rounded-2xl bg-[radial-gradient(420px_160px_at_50%_-30px,hsl(var(--brand-cyan)/.25),transparent_70%)] animate-fade-up ring-1 ring-brand-aqua-start/20" />
         </div>
       </section>
     </div>
