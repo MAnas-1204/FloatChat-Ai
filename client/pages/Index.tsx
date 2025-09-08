@@ -248,16 +248,16 @@ export default function Index() {
       {/* CTA / Contact */}
       <section id="contact" className="relative py-20">
         <div className="container rounded-3xl border border-brand-aqua-start/30 bg-white/50 ring-1 ring-brand-aqua-start/20 overflow-hidden">
-          <div className="flex items-center gap-2 border-b border-brand-aqua-start/20 bg-white/70 px-6 py-4">
+          <div className="flex items-center justify-center gap-2 border-b border-brand-aqua-start/20 bg-white/70 px-6 py-4">
             <span className="text-xl" aria-hidden>🌊</span>
             <span className="font-semibold tracking-tight">FloatChat <span className="text-brand-cyan">AI</span></span>
           </div>
-          <div className="grid items-center gap-8 p-6 md:grid-cols-2">
-            <div className="animate-fade-up">
-              <h3 className="text-2xl font-bold tracking-tight inline-flex items-center gap-2"><Mail className="h-6 w-6 text-brand-cyan"/> Ready to Talk to the Ocean?</h3>
+          <div className="p-6 flex flex-col items-center text-center">
+            <div className="animate-fade-up max-w-xl">
+              <h3 className="text-2xl font-bold tracking-tight inline-flex items-center gap-2 justify-center"><Mail className="h-6 w-6 text-brand-cyan"/> Ready to Talk to the Ocean?</h3>
               <p className="mt-2 text-foreground/70">Get early access to the FloatChat demo and updates.</p>
               <form
-                className="mt-6 flex max-w-md items-center gap-2"
+                className="mt-6 mx-auto flex w-full max-w-md items-center justify-center gap-2"
                 onSubmit={(e) => {
                   e.preventDefault();
                   toast.success("Thanks! We'll keep you posted.");
@@ -280,7 +280,6 @@ export default function Index() {
                 </button>
               </form>
             </div>
-            <div className="h-full w-full rounded-2xl bg-[radial-gradient(420px_160px_at_50%_-30px,hsl(var(--brand-cyan)/.25),transparent_70%)] animate-fade-up ring-1 ring-brand-aqua-start/20" />
           </div>
         </div>
       </section>
