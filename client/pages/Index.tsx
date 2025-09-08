@@ -1,10 +1,36 @@
 import { useEffect, useState } from "react";
 import Bubbles from "@/components/Bubbles";
 import FeatureCard from "@/components/FeatureCard";
-import { Bot, BarChart3, Waves, Globe2, MessageSquare, Share2, Play, Sparkles, Map, LineChart, Mail, Send, User, Lock, UserPlus, Image as ImageIcon } from "lucide-react";
+import {
+  Bot,
+  BarChart3,
+  Waves,
+  Globe2,
+  MessageSquare,
+  Share2,
+  Play,
+  Sparkles,
+  Map,
+  LineChart,
+  Mail,
+  Send,
+  User,
+  Lock,
+  UserPlus,
+  Image as ImageIcon,
+} from "lucide-react";
 import { toast } from "sonner";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { ResponsiveContainer, AreaChart, Area, Line as RLine, CartesianGrid, XAxis, YAxis, Tooltip } from "recharts";
+import {
+  ResponsiveContainer,
+  AreaChart,
+  Area,
+  Line as RLine,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+} from "recharts";
 
 export default function Index() {
   const [email, setEmail] = useState("");
@@ -26,7 +52,10 @@ export default function Index() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-ocean-gradient" />
         <div className="absolute inset-0 bg-ocean-radial" />
-        <Bubbles className="will-change-transform" style={{ transform: `translateY(${parallaxY}px)` }} />
+        <Bubbles
+          className="will-change-transform"
+          style={{ transform: `translateY(${parallaxY}px)` }}
+        />
         <div className="relative container py-24 md:py-32">
           <div className="rounded-3xl border border-white/30 ring-1 ring-brand-aqua-start/30 hover:ring-brand-aqua-end/40 transition shadow-2xl bg-white/10 p-8 backdrop-blur-xl animate-fade-up">
             <div className="grid gap-10 md:grid-cols-2">
@@ -38,14 +67,26 @@ export default function Index() {
                   FloatChat AI
                 </h1>
                 <p className="mt-4 max-w-xl text-white/80 text-base md:text-lg">
-                  Ask the Ocean Anything – Explore ARGO Data with AI. Chat, visualize, and discover insights from millions of global ocean float observations.
+                  Ask the Ocean Anything – Explore ARGO Data with AI. Chat,
+                  visualize, and discover insights from millions of global ocean
+                  float observations.
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-4">
-                  <a href="#demo" className="group relative inline-flex items-center rounded-full px-6 py-3 text-sm font-semibold text-white animate-pulse-glow">
+                  <a
+                    href="#demo"
+                    className="group relative inline-flex items-center rounded-full px-6 py-3 text-sm font-semibold text-white animate-pulse-glow"
+                  >
                     <span className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end blur-md opacity-80 group-hover:opacity-100 transition" />
-                    <span className="relative z-10 inline-flex items-center gap-2"><Play className="h-4 w-4"/> Try the Demo</span>
+                    <span className="relative z-10 inline-flex items-center gap-2">
+                      <Play className="h-4 w-4" /> Try the Demo
+                    </span>
                   </a>
-                  <a href="#features" className="inline-flex items-center rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white/90 hover:text-white hover:border-white/60 transition">Explore Features</a>
+                  <a
+                    href="#features"
+                    className="inline-flex items-center rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white/90 hover:text-white hover:border-white/60 transition"
+                  >
+                    Explore Features
+                  </a>
                 </div>
               </div>
 
@@ -55,36 +96,92 @@ export default function Index() {
                   <div className="rounded-xl bg-white/90 p-4 shadow-2xl">
                     <div className="grid gap-4 md:grid-cols-2">
                       <div className="rounded-lg border border-slate-200 dark:border-white/10 dark:bg-white/5 p-3">
-                        <div className="text-xs font-semibold text-foreground/90 inline-flex items-center gap-1"><MessageSquare className="h-3.5 w-3.5"/> Chat</div>
+                        <div className="text-xs font-semibold text-foreground/90 inline-flex items-center gap-1">
+                          <MessageSquare className="h-3.5 w-3.5" /> Chat
+                        </div>
                         <div className="mt-2 space-y-2 text-xs">
-                          <div className="rounded-md bg-slate-100 dark:bg-white/10 px-3 py-2">How is temperature changing at 1000m in the North Atlantic?</div>
-                          <div className="ml-auto w-5/6 rounded-md bg-gradient-to-r from-brand-aqua-start/20 to-brand-aqua-end/20 px-3 py-2 text-foreground animate-fade-up">Median trend is +0.08°C/decade since 2010. Visualizing profiles…</div>
-                          <div className="rounded-md bg-slate-100 dark:bg-white/10 px-3 py-2">Show map of float density and a time series.</div>
+                          <div className="rounded-md bg-slate-100 dark:bg-white/10 px-3 py-2">
+                            How is temperature changing at 1000m in the North
+                            Atlantic?
+                          </div>
+                          <div className="ml-auto w-5/6 rounded-md bg-gradient-to-r from-brand-aqua-start/20 to-brand-aqua-end/20 px-3 py-2 text-foreground animate-fade-up">
+                            Median trend is +0.08°C/decade since 2010.
+                            Visualizing profiles…
+                          </div>
+                          <div className="rounded-md bg-slate-100 dark:bg-white/10 px-3 py-2">
+                            Show map of float density and a time series.
+                          </div>
                         </div>
                       </div>
                       <div className="rounded-lg border border-slate-200 dark:border-white/10 dark:bg-white/5 p-3">
-                        <div className="text-xs font-semibold text-foreground/90 inline-flex items-center gap-1"><LineChart className="h-3.5 w-3.5"/> Visualization</div>
+                        <div className="text-xs font-semibold text-foreground/90 inline-flex items-center gap-1">
+                          <LineChart className="h-3.5 w-3.5" /> Visualization
+                        </div>
                         <div className="mt-2 grid gap-3">
                           <div className="h-28 rounded-md ring-1 ring-brand-aqua-start/30 dark:ring-white/10 bg-white dark:bg-white/5">
                             <ResponsiveContainer width="100%" height="100%">
-                              <AreaChart data={chartData} margin={{ left: 8, right: 8, top: 8, bottom: 8 }}>
+                              <AreaChart
+                                data={chartData}
+                                margin={{
+                                  left: 8,
+                                  right: 8,
+                                  top: 8,
+                                  bottom: 8,
+                                }}
+                              >
                                 <defs>
-                                  <linearGradient id="tempGradient" x1="0" x2="0" y1="0" y2="1">
-                                    <stop offset="5%" stopColor="#1e90ff" stopOpacity={0.7} />
-                                    <stop offset="95%" stopColor="#00c9ff" stopOpacity={0.2} />
+                                  <linearGradient
+                                    id="tempGradient"
+                                    x1="0"
+                                    x2="0"
+                                    y1="0"
+                                    y2="1"
+                                  >
+                                    <stop
+                                      offset="5%"
+                                      stopColor="#1e90ff"
+                                      stopOpacity={0.7}
+                                    />
+                                    <stop
+                                      offset="95%"
+                                      stopColor="#00c9ff"
+                                      stopOpacity={0.2}
+                                    />
                                   </linearGradient>
                                 </defs>
-                                <CartesianGrid stroke="#e2e8f0" strokeDasharray="3 3" />
-                                <XAxis dataKey="x" tick={{fontSize:10}} tickLine={false} axisLine={false} />
-                                <YAxis tick={{fontSize:10}} tickLine={false} axisLine={false} domain={[9, 14]} />
+                                <CartesianGrid
+                                  stroke="#e2e8f0"
+                                  strokeDasharray="3 3"
+                                />
+                                <XAxis
+                                  dataKey="x"
+                                  tick={{ fontSize: 10 }}
+                                  tickLine={false}
+                                  axisLine={false}
+                                />
+                                <YAxis
+                                  tick={{ fontSize: 10 }}
+                                  tickLine={false}
+                                  axisLine={false}
+                                  domain={[9, 14]}
+                                />
                                 <Tooltip contentStyle={{ fontSize: 12 }} />
-                                <Area type="monotone" dataKey="temp" stroke="#00c9ff" fill="url(#tempGradient)" strokeWidth={2} />
+                                <Area
+                                  type="monotone"
+                                  dataKey="temp"
+                                  stroke="#00c9ff"
+                                  fill="url(#tempGradient)"
+                                  strokeWidth={2}
+                                />
                               </AreaChart>
                             </ResponsiveContainer>
                           </div>
                           <div className="h-28 rounded-md bg-[radial-gradient(300px_120px_at_60%_-80px,hsl(var(--brand-cyan)/.2),transparent_70%)] ring-1 ring-brand-aqua-start/30 dark:ring-white/10 grid grid-cols-10 gap-1 p-2">
                             {Array.from({ length: 50 }).map((_, i) => (
-                              <span key={i} className="h-2.5 w-2.5 rounded-sm bg-brand-aqua-start/20 [box-shadow:0_0_6px_hsl(var(--brand-aqua-end)/.3)]" />
+                              <span
+                                key={i}
+                                className="h-2.5 w-2.5 rounded-sm bg-brand-aqua-start/20 [box-shadow:0_0_6px_hsl(var(--brand-aqua-end)/.3)]"
+                              />
                             ))}
                           </div>
                         </div>
@@ -103,22 +200,35 @@ export default function Index() {
       <section id="about" className="relative py-20">
         <div className="container">
           <div className="mx-auto max-w-3xl text-center animate-fade-up">
-            <h2 className="text-3xl font-bold tracking-tight inline-flex items-center gap-2 justify-center"><Sparkles className="h-6 w-6 text-brand-cyan"/> Why FloatChat?</h2>
+            <h2 className="text-3xl font-bold tracking-tight inline-flex items-center gap-2 justify-center">
+              <Sparkles className="h-6 w-6 text-brand-cyan" /> Why FloatChat?
+            </h2>
             <p className="mt-4 text-foreground/70">
-              ARGO floats generate massive ocean data. It’s complex and hidden. FloatChat makes it simple: chat, explore, and visualize.
+              ARGO floats generate massive ocean data. It’s complex and hidden.
+              FloatChat makes it simple: chat, explore, and visualize.
             </p>
           </div>
           <div className="mt-10 rounded-3xl border border-brand-aqua-start/30 ring-1 ring-brand-aqua-start/20 bg-white/50 dark:border-white/10 dark:ring-white/10 dark:bg-white/5 p-6 backdrop-blur-sm animate-fade-up">
             <div className="grid gap-6 sm:grid-cols-2">
               <div className="rounded-2xl bg-gradient-to-br from-brand-aqua-start/10 to-brand-aqua-end/10 dark:from-brand-aqua-start/20 dark:to-brand-aqua-end/20 p-6 ring-1 ring-brand-aqua-start/20 dark:ring-white/10 transition-transform hover:-translate-y-0.5">
-                <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/90 dark:bg-white/10"><Bot className="h-5 w-5 text-brand-aqua-start"/></div>
+                <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/90 dark:bg-white/10">
+                  <Bot className="h-5 w-5 text-brand-aqua-start" />
+                </div>
                 <h3 className="mt-4 font-semibold">AI</h3>
-                <p className="text-sm text-foreground/70">Ask natural questions. Get synthesized answers with maps and charts.</p>
+                <p className="text-sm text-foreground/70">
+                  Ask natural questions. Get synthesized answers with maps and
+                  charts.
+                </p>
               </div>
               <div className="rounded-2xl bg-gradient-to-br from-brand-aqua-start/10 to-brand-aqua-end/10 dark:from-brand-aqua-start/20 dark:to-brand-aqua-end/20 p-6 ring-1 ring-brand-aqua-start/20 dark:ring-white/10 transition-transform hover:-translate-y-0.5">
-                <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/90 dark:bg-white/10"><BarChart3 className="h-5 w-5 text-brand-aqua-start"/></div>
+                <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/90 dark:bg-white/10">
+                  <BarChart3 className="h-5 w-5 text-brand-aqua-start" />
+                </div>
                 <h3 className="mt-4 font-semibold">Visualization</h3>
-                <p className="text-sm text-foreground/70">Interactive maps, time series, and profile plots generated on demand.</p>
+                <p className="text-sm text-foreground/70">
+                  Interactive maps, time series, and profile plots generated on
+                  demand.
+                </p>
               </div>
             </div>
           </div>
@@ -126,17 +236,46 @@ export default function Index() {
       </section>
 
       {/* Features */}
-      <section id="features" className="relative bg-[radial-gradient(1000px_300px_at_50%_-60px,hsl(var(--brand-aqua-start)/0.15),transparent_70%)] py-20">
+      <section
+        id="features"
+        className="relative bg-[radial-gradient(1000px_300px_at_50%_-60px,hsl(var(--brand-aqua-start)/0.15),transparent_70%)] py-20"
+      >
         <div className="container">
-          <h2 className="text-center text-3xl font-bold tracking-tight animate-fade-up inline-flex items-center gap-2 justify-center"><Sparkles className="h-6 w-6 text-brand-cyan"/> Features</h2>
+          <h2 className="text-center text-3xl font-bold tracking-tight animate-fade-up inline-flex items-center gap-2 justify-center">
+            <Sparkles className="h-6 w-6 text-brand-cyan" /> Features
+          </h2>
           <div className="mt-10 rounded-3xl border border-brand-aqua-start/30 ring-1 ring-brand-aqua-start/20 bg-white/50 dark:border-white/10 dark:ring-white/10 dark:bg-white/5 p-6 backdrop-blur-sm animate-fade-up">
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              <FeatureCard icon={<MessageSquare />} title="AI Chat" description="Ask natural questions about the ocean and float data." />
-              <FeatureCard icon={<BarChart3 />} title="Data Visualization" description="Interactive maps & charts for fast insights." />
-              <FeatureCard icon={<Globe2 />} title="Real Ocean Data" description="Powered by ARGO and ERDDAP datasets." />
-              <FeatureCard icon={<Bot />} title="Storytelling" description="AI generates explanations and narratives." />
-              <FeatureCard icon={<Share2 />} title="Exportable Results" description="Share insights as slides or links." />
-              <FeatureCard icon={<Map />} title="Spatial Views" description="Explore float density and trajectories on map-like visuals." />
+              <FeatureCard
+                icon={<MessageSquare />}
+                title="AI Chat"
+                description="Ask natural questions about the ocean and float data."
+              />
+              <FeatureCard
+                icon={<BarChart3 />}
+                title="Data Visualization"
+                description="Interactive maps & charts for fast insights."
+              />
+              <FeatureCard
+                icon={<Globe2 />}
+                title="Real Ocean Data"
+                description="Powered by ARGO and ERDDAP datasets."
+              />
+              <FeatureCard
+                icon={<Bot />}
+                title="Storytelling"
+                description="AI generates explanations and narratives."
+              />
+              <FeatureCard
+                icon={<Share2 />}
+                title="Exportable Results"
+                description="Share insights as slides or links."
+              />
+              <FeatureCard
+                icon={<Map />}
+                title="Spatial Views"
+                description="Explore float density and trajectories on map-like visuals."
+              />
             </div>
           </div>
         </div>
@@ -146,13 +285,38 @@ export default function Index() {
       <section id="demo" className="relative py-20">
         <div className="container grid items-start gap-10 md:grid-cols-2">
           <div className="animate-fade-up">
-            <h2 className="text-3xl font-bold tracking-tight inline-flex items-center gap-2"><Map className="h-6 w-6 text-brand-cyan"/> See FloatChat in Action</h2>
-            <p className="mt-3 text-foreground/70">Explore a preview of the chat + visualization experience. Ask questions, render maps and charts, and share results in seconds.</p>
-            <a href="#demo" className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end px-6 py-3 text-sm font-semibold text-white drop-shadow-glow animate-pulse-glow"><Play className="h-4 w-4"/> Launch FloatChat Demo</a>
+            <h2 className="text-3xl font-bold tracking-tight inline-flex items-center gap-2">
+              <Map className="h-6 w-6 text-brand-cyan" /> See FloatChat in
+              Action
+            </h2>
+            <p className="mt-3 text-foreground/70">
+              Explore a preview of the chat + visualization experience. Ask
+              questions, render maps and charts, and share results in seconds.
+            </p>
+            <a
+              href="#demo"
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end px-6 py-3 text-sm font-semibold text-white drop-shadow-glow animate-pulse-glow"
+            >
+              <Play className="h-4 w-4" /> Launch FloatChat Demo
+            </a>
             <div className="mt-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=120" alt="ocean" className="h-9 w-9 rounded-full ring-2 ring-brand-aqua-start/50 object-cover animate-bob" />
-              <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?q=80&w=120" alt="floats" className="h-9 w-9 rounded-full ring-2 ring-brand-aqua-end/50 object-cover animate-bob" style={{ animationDelay: '0.2s' }} />
-              <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=120" alt="map" className="h-9 w-9 rounded-full ring-2 ring-brand-cyan/50 object-cover animate-bob" style={{ animationDelay: '0.4s' }} />
+              <img
+                src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=120"
+                alt="ocean"
+                className="h-9 w-9 rounded-full ring-2 ring-brand-aqua-start/50 object-cover animate-bob"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?q=80&w=120"
+                alt="floats"
+                className="h-9 w-9 rounded-full ring-2 ring-brand-aqua-end/50 object-cover animate-bob"
+                style={{ animationDelay: "0.2s" }}
+              />
+              <img
+                src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=120"
+                alt="map"
+                className="h-9 w-9 rounded-full ring-2 ring-brand-cyan/50 object-cover animate-bob"
+                style={{ animationDelay: "0.4s" }}
+              />
               <span className="ml-2 inline-flex items-center gap-1 rounded-full border border-brand-aqua-start/30 dark:border-white/10 bg-white/60 dark:bg-white/10 px-3 py-1 text-xs text-foreground/80">
                 <Sparkles className="h-3.5 w-3.5" /> AI is preparing visuals…
               </span>
@@ -161,9 +325,24 @@ export default function Index() {
           <div className="relative rounded-3xl border border-brand-aqua-start/30 dark:border-white/10 ring-1 ring-brand-aqua-start/20 dark:ring-white/10 p-4 bg-white/60 dark:bg-white/5 backdrop-blur-sm shadow-xl animate-fade-up">
             <Tabs defaultValue="map">
               <TabsList className="bg-white/70 dark:bg-white/10 border border-white/60 dark:border-white/10 rounded-xl">
-                <TabsTrigger value="map" className="data-[state=active]:text-brand-aqua-start inline-flex gap-2"><Map className="h-4 w-4"/> Map</TabsTrigger>
-                <TabsTrigger value="chart" className="data-[state=active]:text-brand-aqua-start inline-flex gap-2"><LineChart className="h-4 w-4"/> Chart</TabsTrigger>
-                <TabsTrigger value="profiles" className="data-[state=active]:text-brand-aqua-start inline-flex gap-2"><Waves className="h-4 w-4"/> Profiles</TabsTrigger>
+                <TabsTrigger
+                  value="map"
+                  className="data-[state=active]:text-brand-aqua-start inline-flex gap-2"
+                >
+                  <Map className="h-4 w-4" /> Map
+                </TabsTrigger>
+                <TabsTrigger
+                  value="chart"
+                  className="data-[state=active]:text-brand-aqua-start inline-flex gap-2"
+                >
+                  <LineChart className="h-4 w-4" /> Chart
+                </TabsTrigger>
+                <TabsTrigger
+                  value="profiles"
+                  className="data-[state=active]:text-brand-aqua-start inline-flex gap-2"
+                >
+                  <Waves className="h-4 w-4" /> Profiles
+                </TabsTrigger>
               </TabsList>
               <TabsContent value="map" className="mt-4">
                 <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-brand-aqua-start/30 ring-1 ring-brand-aqua-start/20 bg-[radial-gradient(600px_200px_at_60%_-80px,hsl(var(--brand-cyan)/.25),transparent_70%)] p-4">
@@ -174,11 +353,17 @@ export default function Index() {
                       <span className="absolute h-6 w-6 rounded-full border border-brand-cyan/60 animate-ping-slow" />
                     </span>
                     <span className="absolute left-[55%] top-[50%] grid place-items-center">
-                      <span className="h-2.5 w-2.5 rounded-full bg-brand-cyan drop-shadow-glow animate-bob" style={{ animationDelay: '0.4s' }} />
+                      <span
+                        className="h-2.5 w-2.5 rounded-full bg-brand-cyan drop-shadow-glow animate-bob"
+                        style={{ animationDelay: "0.4s" }}
+                      />
                       <span className="absolute h-6 w-6 rounded-full border border-brand-cyan/60 animate-ping-slow" />
                     </span>
                     <span className="absolute left-[75%] top-[25%] grid place-items-center">
-                      <span className="h-2.5 w-2.5 rounded-full bg-brand-cyan drop-shadow-glow animate-bob" style={{ animationDelay: '0.8s' }} />
+                      <span
+                        className="h-2.5 w-2.5 rounded-full bg-brand-cyan drop-shadow-glow animate-bob"
+                        style={{ animationDelay: "0.8s" }}
+                      />
                       <span className="absolute h-6 w-6 rounded-full border border-brand-cyan/60 animate-ping-slow" />
                     </span>
                   </div>
@@ -188,7 +373,14 @@ export default function Index() {
                 <div className="aspect-[16/10] rounded-xl border border-brand-aqua-start/30 dark:border-white/10 ring-1 ring-brand-aqua-start/20 dark:ring-white/10 bg-white/80 dark:bg-white/5 p-4">
                   <div className="grid h-full grid-cols-12 items-end gap-1">
                     {Array.from({ length: 12 }).map((_, i) => (
-                      <div key={i} className="bg-gradient-to-t from-brand-aqua-start/50 to-brand-aqua-end/70 animate-fade-up" style={{ height: `${20 + Math.random()*70}%`, animationDelay: `${i*0.05}s` }} />
+                      <div
+                        key={i}
+                        className="bg-gradient-to-t from-brand-aqua-start/50 to-brand-aqua-end/70 animate-fade-up"
+                        style={{
+                          height: `${20 + Math.random() * 70}%`,
+                          animationDelay: `${i * 0.05}s`,
+                        }}
+                      />
                     ))}
                   </div>
                 </div>
@@ -202,8 +394,21 @@ export default function Index() {
                         <stop offset="100%" stopColor="#00c9ff" />
                       </linearGradient>
                     </defs>
-                    <path d="M0,140 Q80,100 120,120 T240,100 T400,110" fill="none" stroke="url(#g1)" strokeWidth="3" className="animate-[float_6s_ease-in-out_infinite]" />
-                    <path d="M0,160 Q100,120 160,140 T320,120 T400,130" fill="none" stroke="#0a2540" strokeOpacity=".5" strokeWidth="2" className="animate-[float_7s_ease-in-out_infinite]" />
+                    <path
+                      d="M0,140 Q80,100 120,120 T240,100 T400,110"
+                      fill="none"
+                      stroke="url(#g1)"
+                      strokeWidth="3"
+                      className="animate-[float_6s_ease-in-out_infinite]"
+                    />
+                    <path
+                      d="M0,160 Q100,120 160,140 T320,120 T400,130"
+                      fill="none"
+                      stroke="#0a2540"
+                      strokeOpacity=".5"
+                      strokeWidth="2"
+                      className="animate-[float_7s_ease-in-out_infinite]"
+                    />
                   </svg>
                 </div>
               </TabsContent>
@@ -219,25 +424,55 @@ export default function Index() {
           <div className="relative overflow-hidden rounded-3xl border border-brand-aqua-start/30 dark:border-white/10 ring-1 ring-brand-aqua-start/20 dark:ring-white/10 bg-white/50 dark:bg-white/5 px-8 py-10 backdrop-blur-sm animate-fade-up">
             <div className="absolute -inset-1 -z-10 opacity-60 blur-2xl [background:radial-gradient(600px_160px_at_20%_-40px,hsl(var(--brand-cyan)/.25),transparent_70%)]" />
             <div className="text-center">
-              <div className="inline-flex items-center gap-2 rounded-full border border-brand-aqua-start/30 dark:border-white/10 bg-white/60 dark:bg-white/10 px-3 py-1 text-xs text-foreground/70"><Sparkles className="h-3.5 w-3.5 text-brand-cyan"/> Team</div>
-              <h3 className="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-[linear-gradient(90deg,hsl(var(--brand-aqua-start)),hsl(var(--brand-cyan)),hsl(var(--brand-aqua-end)))] bg-[length:200%_100%] animate-shimmer">Oceanauts</h3>
-              <p className="mt-3 text-foreground/70 max-w-2xl mx-auto">We converse with the sea. Blending ocean science with AI storytelling to surface patterns hidden beneath the waves.</p>
+              <div className="inline-flex items-center gap-2 rounded-full border border-brand-aqua-start/30 dark:border-white/10 bg-white/60 dark:bg-white/10 px-3 py-1 text-xs text-foreground/70">
+                <Sparkles className="h-3.5 w-3.5 text-brand-cyan" /> Team
+              </div>
+              <h3 className="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-[linear-gradient(90deg,hsl(var(--brand-aqua-start)),hsl(var(--brand-cyan)),hsl(var(--brand-aqua-end)))] bg-[length:200%_100%] animate-shimmer">
+                Oceanauts
+              </h3>
+              <p className="mt-3 text-foreground/70 max-w-2xl mx-auto">
+                We converse with the sea. Blending ocean science with AI
+                storytelling to surface patterns hidden beneath the waves.
+              </p>
             </div>
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              <div className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/50 dark:bg-white/5 p-4 backdrop-blur-sm animate-fade-up" style={{animationDelay:'0s'}}>
-                <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white"><Waves className="h-5 w-5"/></div>
+              <div
+                className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/50 dark:bg-white/5 p-4 backdrop-blur-sm animate-fade-up"
+                style={{ animationDelay: "0s" }}
+              >
+                <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white">
+                  <Waves className="h-5 w-5" />
+                </div>
                 <h4 className="mt-3 font-semibold">Ocean-First Design</h4>
-                <p className="text-sm text-foreground/70">Every interaction feels like water—fluid, calm, and precise.</p>
+                <p className="text-sm text-foreground/70">
+                  Every interaction feels like water—fluid, calm, and precise.
+                </p>
               </div>
-              <div className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/50 dark:bg-white/5 p-4 backdrop-blur-sm animate-fade-up" style={{animationDelay:'0.1s'}}>
-                <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white"><Bot className="h-5 w-5"/></div>
+              <div
+                className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/50 dark:bg-white/5 p-4 backdrop-blur-sm animate-fade-up"
+                style={{ animationDelay: "0.1s" }}
+              >
+                <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white">
+                  <Bot className="h-5 w-5" />
+                </div>
                 <h4 className="mt-3 font-semibold">Human + AI</h4>
-                <p className="text-sm text-foreground/70">We craft conversations that turn data into narratives and decisions.</p>
+                <p className="text-sm text-foreground/70">
+                  We craft conversations that turn data into narratives and
+                  decisions.
+                </p>
               </div>
-              <div className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/50 dark:bg-white/5 p-4 backdrop-blur-sm animate-fade-up" style={{animationDelay:'0.2s'}}>
-                <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white"><Map className="h-5 w-5"/></div>
+              <div
+                className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/50 dark:bg-white/5 p-4 backdrop-blur-sm animate-fade-up"
+                style={{ animationDelay: "0.2s" }}
+              >
+                <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white">
+                  <Map className="h-5 w-5" />
+                </div>
                 <h4 className="mt-3 font-semibold">Science in Motion</h4>
-                <p className="text-sm text-foreground/70">Live maps, profiles, and visuals that breathe with real ARGO data.</p>
+                <p className="text-sm text-foreground/70">
+                  Live maps, profiles, and visuals that breathe with real ARGO
+                  data.
+                </p>
               </div>
             </div>
             <Bubbles className="opacity-20" />
@@ -249,13 +484,22 @@ export default function Index() {
       <section id="contact" className="relative py-20">
         <div className="container rounded-3xl border border-brand-aqua-start/30 dark:border-white/10 bg-white/50 dark:bg-white/5 ring-1 ring-brand-aqua-start/20 dark:ring-white/10 overflow-hidden">
           <div className="flex items-center justify-center gap-2 border-b border-brand-aqua-start/20 dark:border-white/10 bg-white/70 dark:bg-white/10 px-6 py-4">
-            <span className="text-xl" aria-hidden>🌊</span>
-            <span className="font-semibold tracking-tight">FloatChat <span className="text-brand-cyan">AI</span></span>
+            <span className="text-xl" aria-hidden>
+              🌊
+            </span>
+            <span className="font-semibold tracking-tight">
+              FloatChat <span className="text-brand-cyan">AI</span>
+            </span>
           </div>
           <div className="p-6 flex flex-col items-center text-center">
             <div className="animate-fade-up max-w-xl">
-              <h3 className="text-2xl font-bold tracking-tight inline-flex items-center gap-2 justify-center"><Mail className="h-6 w-6 text-brand-cyan"/> Ready to Talk to the Ocean?</h3>
-              <p className="mt-2 text-foreground/70">Get early access to the FloatChat demo and updates.</p>
+              <h3 className="text-2xl font-bold tracking-tight inline-flex items-center gap-2 justify-center">
+                <Mail className="h-6 w-6 text-brand-cyan" /> Ready to Talk to
+                the Ocean?
+              </h3>
+              <p className="mt-2 text-foreground/70">
+                Get early access to the FloatChat demo and updates.
+              </p>
               <form
                 className="mt-6 mx-auto flex w-full max-w-md items-center justify-center gap-2"
                 onSubmit={(e) => {
@@ -276,7 +520,7 @@ export default function Index() {
                   type="submit"
                   className="relative inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end px-6 py-3 text-sm font-semibold text-white drop-shadow-glow"
                 >
-                  <Send className="h-4 w-4"/> Subscribe
+                  <Send className="h-4 w-4" /> Subscribe
                 </button>
               </form>
             </div>
