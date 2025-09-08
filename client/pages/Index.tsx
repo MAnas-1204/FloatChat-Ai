@@ -16,7 +16,7 @@ export default function Index() {
         <div className="absolute inset-0 bg-ocean-radial" />
         <Bubbles />
         <div className="relative container py-24 md:py-32">
-          <div className="rounded-3xl border border-white/20 bg-white/10 p-8 backdrop-blur-xl shadow-xl animate-fade-up">
+          <div className="rounded-3xl border border-white/30 ring-1 ring-brand-aqua-start/30 hover:ring-brand-aqua-end/40 transition shadow-2xl bg-white/10 p-8 backdrop-blur-xl animate-fade-up">
             <div className="grid gap-10 md:grid-cols-2">
               <div className="text-white">
                 <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs backdrop-blur">
@@ -76,7 +76,7 @@ export default function Index() {
               ARGO floats generate massive ocean data. It’s complex and hidden. FloatChat makes it simple: chat, explore, and visualize.
             </p>
           </div>
-          <div className="mt-10 rounded-3xl border border-border bg-white/40 p-6 backdrop-blur-sm animate-fade-up">
+          <div className="mt-10 rounded-3xl border border-brand-aqua-start/30 ring-1 ring-brand-aqua-start/20 bg-white/50 p-6 backdrop-blur-sm animate-fade-up">
             <div className="grid gap-6 sm:grid-cols-2">
               <div className="rounded-2xl bg-gradient-to-br from-brand-aqua-start/10 to-brand-aqua-end/10 p-6 ring-1 ring-brand-aqua-start/20 transition-transform hover:-translate-y-0.5">
                 <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/80"><Bot className="h-5 w-5 text-brand-aqua-start"/></div>
@@ -97,7 +97,7 @@ export default function Index() {
       <section id="features" className="relative bg-[radial-gradient(1000px_300px_at_50%_-60px,hsl(var(--brand-aqua-start)/0.15),transparent_70%)] py-20">
         <div className="container">
           <h2 className="text-center text-3xl font-bold tracking-tight animate-fade-up inline-flex items-center gap-2 justify-center"><Sparkles className="h-6 w-6 text-brand-cyan"/> Capabilities</h2>
-          <div className="mt-10 rounded-3xl border border-border bg-white/40 p-6 backdrop-blur-sm animate-fade-up">
+          <div className="mt-10 rounded-3xl border border-brand-aqua-start/30 ring-1 ring-brand-aqua-start/20 bg-white/50 p-6 backdrop-blur-sm animate-fade-up">
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               <FeatureCard icon={<MessageSquare />} title="AI Chat" description="Ask natural questions about the ocean and float data." />
               <FeatureCard icon={<BarChart3 />} title="Data Visualization" description="Interactive maps & charts for fast insights." />
@@ -118,20 +118,20 @@ export default function Index() {
             <p className="mt-3 text-foreground/70">Explore a preview of the chat + visualization experience. Ask questions, render maps and charts, and share results in seconds.</p>
             <a href="#demo" className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end px-6 py-3 text-sm font-semibold text-white drop-shadow-glow"><Play className="h-4 w-4"/> Launch FloatChat Demo</a>
           </div>
-          <div className="relative rounded-3xl border border-border p-4 bg-white/40 backdrop-blur-sm animate-fade-up">
+          <div className="relative rounded-3xl border border-brand-aqua-start/30 ring-1 ring-brand-aqua-start/20 p-4 bg-white/60 backdrop-blur-sm shadow-xl animate-fade-up">
             <Tabs defaultValue="map">
-              <TabsList className="bg-white/60">
+              <TabsList className="bg-white/70 border border-white/60 rounded-xl">
                 <TabsTrigger value="map" className="data-[state=active]:text-brand-aqua-start inline-flex gap-2"><Map className="h-4 w-4"/> Map</TabsTrigger>
                 <TabsTrigger value="chart" className="data-[state=active]:text-brand-aqua-start inline-flex gap-2"><LineChart className="h-4 w-4"/> Chart</TabsTrigger>
                 <TabsTrigger value="profiles" className="data-[state=active]:text-brand-aqua-start inline-flex gap-2"><Waves className="h-4 w-4"/> Profiles</TabsTrigger>
               </TabsList>
               <TabsContent value="map" className="mt-4">
-                <div className="aspect-[16/10] overflow-hidden rounded-xl border border-white/40 bg-[radial-gradient(600px_200px_at_60%_-80px,hsl(var(--brand-cyan)/.25),transparent_70%)] p-4">
+                <div className="aspect-[16/10] overflow-hidden rounded-xl border border-brand-aqua-start/30 ring-1 ring-brand-aqua-start/20 bg-[radial-gradient(600px_200px_at_60%_-80px,hsl(var(--brand-cyan)/.25),transparent_70%)] p-4">
                   <div className="h-full w-full rounded-lg bg-[linear-gradient(0deg,transparent_96%,hsl(var(--brand-aqua-start)/.35)_96%),linear-gradient(90deg,transparent_96%,hsl(var(--brand-aqua-end)/.35)_96%)] bg-[length:24px_24px]" />
                 </div>
               </TabsContent>
               <TabsContent value="chart" className="mt-4">
-                <div className="aspect-[16/10] rounded-xl border border-white/40 bg-white/80 p-4">
+                <div className="aspect-[16/10] rounded-xl border border-brand-aqua-start/30 ring-1 ring-brand-aqua-start/20 bg-white/80 p-4">
                   <div className="grid h-full grid-cols-12 items-end gap-1">
                     {Array.from({ length: 12 }).map((_, i) => (
                       <div key={i} className="bg-gradient-to-t from-brand-aqua-start/50 to-brand-aqua-end/70 animate-fade-up" style={{ height: `${20 + Math.random()*70}%`, animationDelay: `${i*0.05}s` }} />
@@ -140,7 +140,7 @@ export default function Index() {
                 </div>
               </TabsContent>
               <TabsContent value="profiles" className="mt-4">
-                <div className="aspect-[16/10] rounded-xl border border-white/40 bg-white/80 p-4">
+                <div className="aspect-[16/10] rounded-xl border border-brand-aqua-start/30 ring-1 ring-brand-aqua-start/20 bg-white/80 p-4">
                   <svg viewBox="0 0 400 200" className="h-full w-full">
                     <defs>
                       <linearGradient id="g1" x1="0" x2="1">
@@ -161,7 +161,7 @@ export default function Index() {
 
       {/* CTA / Contact */}
       <section id="contact" className="relative py-20">
-        <div className="container grid items-center gap-8 rounded-3xl border border-border bg-gradient-to-tr from-brand-aqua-start/10 to-brand-aqua-end/10 p-8 ring-1 ring-brand-aqua-start/20 md:grid-cols-3">
+        <div className="container grid items-center gap-8 rounded-3xl border border-brand-aqua-start/30 bg-gradient-to-tr from-brand-aqua-start/10 to-brand-aqua-end/10 p-8 ring-1 ring-brand-aqua-start/30 hover:ring-brand-aqua-end/40 transition md:grid-cols-3">
           <div className="md:col-span-2 animate-fade-up">
             <h3 className="text-2xl font-bold tracking-tight inline-flex items-center gap-2"><Mail className="h-6 w-6 text-brand-cyan"/> Ready to Talk to the Ocean?</h3>
             <p className="mt-2 text-foreground/70">Get early access to the FloatChat demo and updates.</p>
