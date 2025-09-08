@@ -63,8 +63,8 @@ export default {
         },
         brand: {
           ocean: "hsl(var(--brand-ocean))",
-          aquaStart: "hsl(var(--brand-aqua-start))",
-          aquaEnd: "hsl(var(--brand-aqua-end))",
+          "aqua-start": "hsl(var(--brand-aqua-start))",
+          "aqua-end": "hsl(var(--brand-aqua-end))",
           cyan: "hsl(var(--brand-cyan))",
         },
       },
