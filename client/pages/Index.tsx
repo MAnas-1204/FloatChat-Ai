@@ -1,8 +1,7 @@
 import { useState } from "react";
 import Bubbles from "@/components/Bubbles";
 import FeatureCard from "@/components/FeatureCard";
-import TeamCard from "@/components/TeamCard";
-import { Bot, BarChart3, Waves, Globe2, MessageSquare, Share2, Rocket, Play } from "lucide-react";
+import { Bot, BarChart3, Waves, Globe2, MessageSquare, Share2, Play, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 
 export default function Index() {
@@ -102,7 +101,6 @@ export default function Index() {
             <FeatureCard icon={<Globe2 />} title="Real Ocean Data" description="Powered by ARGO and ERDDAP datasets." />
             <FeatureCard icon={<Bot />} title="Storytelling" description="AI generates explanations and narratives." />
             <FeatureCard icon={<Share2 />} title="Exportable Results" description="Share insights as slides or links." />
-            <FeatureCard icon={<Rocket />} title="Hackathon Ready" description="Built fast, polished, and impactful." />
           </div>
         </div>
       </section>
@@ -126,15 +124,37 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Team */}
-      <section id="team" className="relative bg-[radial-gradient(1000px_300px_at_50%_-60px,hsl(var(--brand-aqua-start)/0.12),transparent_70%)] py-20">
-        <div className="container">
-          <h2 className="text-center text-3xl font-bold tracking-tight">Meet the Innovators</h2>
-          <div className="mx-auto mt-10 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <TeamCard name="Anas" role="Founder / AI Engineer" img="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400" linkedin="https://www.linkedin.com" github="https://github.com" />
-            <TeamCard name="Marina" role="Oceanographer" img="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=400" linkedin="https://www.linkedin.com" github="https://github.com" />
-            <TeamCard name="Leo" role="Data Visualization" img="https://images.unsplash.com/photo-1546967191-fdfb13ed6b1e?q=80&w=400" linkedin="https://www.linkedin.com" github="https://github.com" />
-            <TeamCard name="Aya" role="Product Designer" img="https://images.unsplash.com/photo-1544005317-3f0b6d4d4a2a?q=80&w=400" linkedin="https://www.linkedin.com" github="https://github.com" />
+      {/* AI Chat Panel */}
+      <section id="chat" className="relative bg-[radial-gradient(1000px_300px_at_50%_-60px,hsl(var(--brand-aqua-start)/0.12),transparent_70%)] py-20">
+        <div className="container grid items-center gap-10 md:grid-cols-2">
+          <div>
+            <h2 className="text-3xl font-bold tracking-tight">Chat with the Ocean</h2>
+            <p className="mt-3 text-foreground/70">A conversational interface to query ARGO floats. The AI turns questions into data queries and visualizations.</p>
+            <a href="#demo" className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end px-6 py-3 text-sm font-semibold text-white drop-shadow-glow">Open Chat</a>
+          </div>
+          <div className="relative rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+            <div className="flex items-center gap-3 rounded-xl border border-white/15 bg-white/10 px-4 py-3">
+              <div className="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white font-bold drop-shadow-glow">
+                <Sparkles className="h-4 w-4" />
+              </div>
+              <div>
+                <div className="text-sm font-semibold">AI Create</div>
+                <div className="text-xs text-white/70">Ocean Chat Model</div>
+              </div>
+            </div>
+            <div className="mt-4 space-y-3">
+              <div className="max-w-[85%] rounded-2xl bg-white/90 p-3 text-xs text-slate-800 shadow">Show mean temperature trend at 1000m in the North Atlantic.</div>
+              <div className="ml-auto max-w-[85%] rounded-2xl bg-gradient-to-r from-brand-aqua-start/20 to-brand-aqua-end/20 p-3 text-xs text-slate-900 ring-1 ring-brand-aqua-start/30">Median trend is +0.08°C/decade since 2010. Rendering map and time series…</div>
+              <div className="max-w-[85%] rounded-2xl bg-white/90 p-3 text-xs text-slate-800 shadow">Map float density and plot a monthly time series.</div>
+              <div className="rounded-xl border border-white/15 bg-white/10 p-3">
+                <div className="h-28 rounded-lg bg-gradient-to-tr from-brand-aqua-start/25 to-brand-aqua-end/25 ring-1 ring-brand-aqua-start/30" />
+              </div>
+            </div>
+            <form className="mt-4 flex items-center gap-2">
+              <input disabled placeholder="Type your question…" className="flex-1 rounded-full border border-white/20 bg-white/70 px-4 py-3 text-sm text-slate-800 placeholder:text-slate-500" />
+              <button disabled className="rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end px-5 py-2 text-sm font-semibold text-white opacity-60">Send</button>
+            </form>
+            <div className="pointer-events-none absolute -inset-0.5 -z-10 rounded-3xl opacity-70 blur-2xl [background:linear-gradient(135deg,hsl(var(--brand-aqua-start)),hsl(var(--brand-aqua-end)))]" />
           </div>
         </div>
       </section>
