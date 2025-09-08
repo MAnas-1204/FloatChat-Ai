@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 import AuthPage from "./pages/Auth";
 import BrandHeader from "@/components/BrandHeader";
 import BrandFooter from "@/components/BrandFooter";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const queryClient = new QueryClient();
 
