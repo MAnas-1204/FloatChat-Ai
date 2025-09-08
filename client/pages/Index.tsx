@@ -247,35 +247,41 @@ export default function Index() {
 
       {/* CTA / Contact */}
       <section id="contact" className="relative py-20">
-        <div className="container grid items-center gap-10 rounded-3xl border border-brand-aqua-start/30 bg-white/50 p-8 ring-1 ring-brand-aqua-start/20 md:grid-cols-2">
-          <div className="animate-fade-up">
-            <h3 className="text-2xl font-bold tracking-tight inline-flex items-center gap-2"><Mail className="h-6 w-6 text-brand-cyan"/> Ready to Talk to the Ocean?</h3>
-            <p className="mt-2 text-foreground/70">Get early access to the FloatChat demo and updates.</p>
-            <form
-              className="mt-6 flex max-w-md items-center gap-2"
-              onSubmit={(e) => {
-                e.preventDefault();
-                toast.success("Thanks! We'll keep you posted.");
-                setEmail("");
-              }}
-            >
-              <input
-                required
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@example.com"
-                className="flex-1 rounded-full border border-brand-aqua-start/30 bg-white/80 px-4 py-3 text-sm outline-none ring-0 placeholder:text-foreground/50 focus:border-brand-aqua-end/60"
-              />
-              <button
-                type="submit"
-                className="relative inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end px-6 py-3 text-sm font-semibold text-white drop-shadow-glow"
-              >
-                <Send className="h-4 w-4"/> Subscribe
-              </button>
-            </form>
+        <div className="container rounded-3xl border border-brand-aqua-start/30 bg-white/50 ring-1 ring-brand-aqua-start/20 overflow-hidden">
+          <div className="flex items-center gap-2 border-b border-brand-aqua-start/20 bg-white/70 px-6 py-4">
+            <span className="text-xl" aria-hidden>🌊</span>
+            <span className="font-semibold tracking-tight">FloatChat <span className="text-brand-cyan">AI</span></span>
           </div>
-          <div className="h-full w-full rounded-2xl bg-[radial-gradient(420px_160px_at_50%_-30px,hsl(var(--brand-cyan)/.25),transparent_70%)] animate-fade-up ring-1 ring-brand-aqua-start/20" />
+          <div className="grid items-center gap-8 p-6 md:grid-cols-2">
+            <div className="animate-fade-up">
+              <h3 className="text-2xl font-bold tracking-tight inline-flex items-center gap-2"><Mail className="h-6 w-6 text-brand-cyan"/> Ready to Talk to the Ocean?</h3>
+              <p className="mt-2 text-foreground/70">Get early access to the FloatChat demo and updates.</p>
+              <form
+                className="mt-6 flex max-w-md items-center gap-2"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  toast.success("Thanks! We'll keep you posted.");
+                  setEmail("");
+                }}
+              >
+                <input
+                  required
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="you@example.com"
+                  className="flex-1 rounded-full border border-brand-aqua-start/30 bg-white/80 px-4 py-3 text-sm outline-none ring-0 placeholder:text-foreground/50 focus:border-brand-aqua-end/60"
+                />
+                <button
+                  type="submit"
+                  className="relative inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end px-6 py-3 text-sm font-semibold text-white drop-shadow-glow"
+                >
+                  <Send className="h-4 w-4"/> Subscribe
+                </button>
+              </form>
+            </div>
+            <div className="h-full w-full rounded-2xl bg-[radial-gradient(420px_160px_at_50%_-30px,hsl(var(--brand-cyan)/.25),transparent_70%)] animate-fade-up ring-1 ring-brand-aqua-start/20" />
+          </div>
         </div>
       </section>
     </div>
