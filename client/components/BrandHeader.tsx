@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { Info, Sparkles, Map, Mail } from "lucide-react";
+import { Info, Sparkles, Map, Mail, User } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 const NAV = [
   { label: "About", href: "#about", icon: Info },
@@ -12,6 +13,7 @@ const NAV = [
 export default function BrandHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState<string>("home");
+  const [email, setEmail] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -36,6 +38,12 @@ export default function BrandHeader() {
       if (el) io.observe(el);
     });
     return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    supabase.auth.getUser().then(({ data }) => setEmail(data.user?.email ?? null));
+    const { data: sub } = supabase.auth.onAuthStateChange((_e, s) => setEmail(s?.user?.email ?? null));
+    return () => { sub.subscription.unsubscribe(); };
   }, []);
 
   return (
@@ -89,6 +97,15 @@ export default function BrandHeader() {
         </div>
 
         <div className="flex items-center gap-2">
+          <a
+            href="/auth"
+            className={cn(
+              "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm border transition",
+              scrolled ? "border-white/20 text-white/90 hover:text-white hover:bg-white/10" : "border-foreground/10 text-foreground/80 hover:bg-white",
+            )}
+          >
+            <User className="h-4 w-4" /> {email ? email : "Account"}
+          </a>
           <a
             href="#demo"
             className="group relative inline-flex items-center rounded-full px-5 py-2 text-sm font-semibold text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan/70 animate-pulse-glow"
