@@ -1,13 +1,18 @@
 import { useEffect, useState } from "react";
 import Bubbles from "@/components/Bubbles";
 import FeatureCard from "@/components/FeatureCard";
-import { Bot, BarChart3, Waves, Globe2, MessageSquare, Share2, Play, Sparkles, Map, LineChart, Mail, Send } from "lucide-react";
+import { Bot, BarChart3, Waves, Globe2, MessageSquare, Share2, Play, Sparkles, Map, LineChart, Mail, Send, User, Lock, UserPlus, Image as ImageIcon } from "lucide-react";
 import { toast } from "sonner";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { ResponsiveContainer, AreaChart, Area, Line as RLine, CartesianGrid, XAxis, YAxis, Tooltip } from "recharts";
 
 export default function Index() {
   const [email, setEmail] = useState("");
   const [parallaxY, setParallaxY] = useState(0);
+  const chartData = Array.from({ length: 16 }).map((_, i) => ({
+    x: i,
+    temp: 10 + Math.sin(i / 2) * 1.2 + i * 0.12,
+  }));
   useEffect(() => {
     const onScroll = () => setParallaxY(Math.min(window.scrollY * 0.05, 60));
     onScroll();
@@ -60,8 +65,28 @@ export default function Index() {
                       <div className="rounded-lg border border-slate-200 p-3">
                         <div className="text-xs font-semibold text-slate-700 inline-flex items-center gap-1"><LineChart className="h-3.5 w-3.5"/> Visualization</div>
                         <div className="mt-2 grid gap-3">
-                          <div className="h-28 rounded-md bg-gradient-to-tr from-brand-aqua-start/25 to-brand-aqua-end/25 ring-1 ring-brand-aqua-start/30" />
-                          <div className="h-28 rounded-md bg-[conic-gradient(from_180deg_at_50%_50%,#0a2540_0deg,#00c9ff_120deg,#1e90ff_240deg,#0a2540_360deg)] opacity-90 animate-fade-up" />
+                          <div className="h-28 rounded-md ring-1 ring-brand-aqua-start/30 bg-white">
+                            <ResponsiveContainer width="100%" height="100%">
+                              <AreaChart data={chartData} margin={{ left: 8, right: 8, top: 8, bottom: 8 }}>
+                                <defs>
+                                  <linearGradient id="tempGradient" x1="0" x2="0" y1="0" y2="1">
+                                    <stop offset="5%" stopColor="#1e90ff" stopOpacity={0.7} />
+                                    <stop offset="95%" stopColor="#00c9ff" stopOpacity={0.2} />
+                                  </linearGradient>
+                                </defs>
+                                <CartesianGrid stroke="#e2e8f0" strokeDasharray="3 3" />
+                                <XAxis dataKey="x" tick={{fontSize:10}} tickLine={false} axisLine={false} />
+                                <YAxis tick={{fontSize:10}} tickLine={false} axisLine={false} domain={[9, 14]} />
+                                <Tooltip contentStyle={{ fontSize: 12 }} />
+                                <Area type="monotone" dataKey="temp" stroke="#00c9ff" fill="url(#tempGradient)" strokeWidth={2} />
+                              </AreaChart>
+                            </ResponsiveContainer>
+                          </div>
+                          <div className="h-28 rounded-md bg-[radial-gradient(300px_120px_at_60%_-80px,hsl(var(--brand-cyan)/.2),transparent_70%)] ring-1 ring-brand-aqua-start/30 grid grid-cols-10 gap-1 p-2">
+                            {Array.from({ length: 50 }).map((_, i) => (
+                              <span key={i} className="h-2.5 w-2.5 rounded-sm bg-brand-aqua-start/20 [box-shadow:0_0_6px_hsl(var(--brand-aqua-end)/.3)]" />
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -117,6 +142,35 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Auth */}
+      <section id="auth" className="relative py-16">
+        <div className="container">
+          <div className="rounded-3xl border border-brand-aqua-start/30 ring-1 ring-brand-aqua-start/20 bg-white/60 p-6 backdrop-blur-sm shadow-md animate-fade-up">
+            <Tabs defaultValue="signin">
+              <TabsList className="bg-white/70 border border-white/60 rounded-xl">
+                <TabsTrigger value="signin" className="data-[state=active]:text-brand-aqua-start inline-flex gap-2"><Lock className="h-4 w-4"/> Sign In</TabsTrigger>
+                <TabsTrigger value="signup" className="data-[state=active]:text-brand-aqua-start inline-flex gap-2"><UserPlus className="h-4 w-4"/> Sign Up</TabsTrigger>
+              </TabsList>
+              <TabsContent value="signin" className="mt-4">
+                <form className="grid max-w-md gap-3" onSubmit={(e)=>{e.preventDefault(); toast.success('Signed in (demo)');}}>
+                  <label className="text-sm">Email<input type="email" required className="mt-1 w-full rounded-lg border border-brand-aqua-start/30 bg-white/90 px-3 py-2"/></label>
+                  <label className="text-sm">Password<input type="password" required className="mt-1 w-full rounded-lg border border-brand-aqua-start/30 bg-white/90 px-3 py-2"/></label>
+                  <button className="mt-1 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end px-5 py-2 text-sm font-semibold text-white drop-shadow-glow">Sign In</button>
+                </form>
+              </TabsContent>
+              <TabsContent value="signup" className="mt-4">
+                <form className="grid max-w-md gap-3" onSubmit={(e)=>{e.preventDefault(); toast.success('Signed up (demo)');}}>
+                  <label className="text-sm">Name<input type="text" required className="mt-1 w-full rounded-lg border border-brand-aqua-start/30 bg-white/90 px-3 py-2"/></label>
+                  <label className="text-sm">Email<input type="email" required className="mt-1 w-full rounded-lg border border-brand-aqua-start/30 bg-white/90 px-3 py-2"/></label>
+                  <label className="text-sm">Password<input type="password" required className="mt-1 w-full rounded-lg border border-brand-aqua-start/30 bg-white/90 px-3 py-2"/></label>
+                  <button className="mt-1 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end px-5 py-2 text-sm font-semibold text-white drop-shadow-glow">Create Account</button>
+                </form>
+              </TabsContent>
+            </Tabs>
+          </div>
+        </div>
+      </section>
+
       {/* Demo Preview */}
       <section id="demo" className="relative py-20">
         <div className="container grid items-start gap-10 md:grid-cols-2">
@@ -124,6 +178,14 @@ export default function Index() {
             <h2 className="text-3xl font-bold tracking-tight inline-flex items-center gap-2"><Map className="h-6 w-6 text-brand-cyan"/> See FloatChat in Action</h2>
             <p className="mt-3 text-foreground/70">Explore a preview of the chat + visualization experience. Ask questions, render maps and charts, and share results in seconds.</p>
             <a href="#demo" className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end px-6 py-3 text-sm font-semibold text-white drop-shadow-glow animate-pulse-glow"><Play className="h-4 w-4"/> Launch FloatChat Demo</a>
+            <div className="mt-4 flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=120" alt="ocean" className="h-9 w-9 rounded-full ring-2 ring-brand-aqua-start/50 object-cover animate-bob" />
+              <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?q=80&w=120" alt="floats" className="h-9 w-9 rounded-full ring-2 ring-brand-aqua-end/50 object-cover animate-bob" style={{ animationDelay: '0.2s' }} />
+              <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=120" alt="map" className="h-9 w-9 rounded-full ring-2 ring-brand-cyan/50 object-cover animate-bob" style={{ animationDelay: '0.4s' }} />
+              <span className="ml-2 inline-flex items-center gap-1 rounded-full border border-brand-aqua-start/30 bg-white/60 px-3 py-1 text-xs text-slate-700">
+                <Sparkles className="h-3.5 w-3.5" /> AI is preparing visuals…
+              </span>
+            </div>
           </div>
           <div className="relative rounded-3xl border border-brand-aqua-start/30 ring-1 ring-brand-aqua-start/20 p-4 bg-white/60 backdrop-blur-sm shadow-xl animate-fade-up">
             <Tabs defaultValue="map">
@@ -177,6 +239,13 @@ export default function Index() {
             </Tabs>
             <div className="pointer-events-none absolute -inset-1 -z-10 rounded-3xl opacity-60 blur-2xl [background:linear-gradient(135deg,hsl(var(--brand-aqua-start)),hsl(var(--brand-aqua-end)))]" />
           </div>
+        </div>
+      </section>
+
+      {/* Teamname Banner */}
+      <section className="relative py-8">
+        <div className="container">
+          <div className="rounded-full border border-brand-aqua-start/30 bg-white/60 px-6 py-3 text-center text-sm font-semibold tracking-wide">Team: Oceanauts</div>
         </div>
       </section>
 
