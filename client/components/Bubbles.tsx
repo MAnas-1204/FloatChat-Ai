@@ -1,6 +1,6 @@
-export default function Bubbles() {
+export default function Bubbles({ className = "", style }: { className?: string; style?: React.CSSProperties }) {
   return (
-    <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+    <div aria-hidden className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`} style={style}>
       <div className="absolute -left-10 top-20 h-24 w-24 rounded-full bg-brand-aqua-start/20 blur-xl animate-float" />
       <div className="absolute left-1/3 top-10 h-16 w-16 rounded-full bg-brand-cyan/20 blur-lg animate-float" style={{ animationDelay: '0.6s' }} />
       <div className="absolute right-10 top-28 h-28 w-28 rounded-full bg-brand-aqua-end/20 blur-xl animate-float" style={{ animationDelay: '1.2s' }} />
