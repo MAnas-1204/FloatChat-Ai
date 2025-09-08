@@ -224,17 +224,17 @@ export default function Index() {
               <p className="mt-3 text-white/80 max-w-2xl mx-auto">We converse with the sea. Blending ocean science with AI storytelling to surface patterns hidden beneath the waves.</p>
             </div>
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              <div className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm">
+              <div className="rounded-2xl border border-brand-aqua-start/20 bg-white/60 p-4 backdrop-blur-sm">
                 <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white"><Waves className="h-5 w-5"/></div>
                 <h4 className="mt-3 font-semibold">Ocean-First Design</h4>
                 <p className="text-sm text-white/80">Every interaction feels like water—fluid, calm, and precise.</p>
               </div>
-              <div className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm">
+              <div className="rounded-2xl border border-brand-aqua-start/20 bg-white/60 p-4 backdrop-blur-sm">
                 <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white"><Bot className="h-5 w-5"/></div>
                 <h4 className="mt-3 font-semibold">Human + AI</h4>
                 <p className="text-sm text-white/80">We craft conversations that turn data into narratives and decisions.</p>
               </div>
-              <div className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm">
+              <div className="rounded-2xl border border-brand-aqua-start/20 bg-white/60 p-4 backdrop-blur-sm">
                 <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white"><Map className="h-5 w-5"/></div>
                 <h4 className="mt-3 font-semibold">Science in Motion</h4>
                 <p className="text-sm text-white/80">Live maps, profiles, and visuals that breathe with real ARGO data.</p>
