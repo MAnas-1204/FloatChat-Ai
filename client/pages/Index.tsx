@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Bubbles from "@/components/Bubbles";
 import FeatureCard from "@/components/FeatureCard";
 import { Bot, BarChart3, Waves, Globe2, MessageSquare, Share2, Play, Sparkles, Map, LineChart, Mail, Send } from "lucide-react";
@@ -7,6 +7,13 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 export default function Index() {
   const [email, setEmail] = useState("");
+  const [parallaxY, setParallaxY] = useState(0);
+  useEffect(() => {
+    const onScroll = () => setParallaxY(Math.min(window.scrollY * 0.05, 60));
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <div className="flex flex-col">
@@ -14,7 +21,7 @@ export default function Index() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-ocean-gradient" />
         <div className="absolute inset-0 bg-ocean-radial" />
-        <Bubbles />
+        <Bubbles className="will-change-transform" style={{ transform: `translateY(${parallaxY}px)` }} />
         <div className="relative container py-24 md:py-32">
           <div className="rounded-3xl border border-white/30 ring-1 ring-brand-aqua-start/30 hover:ring-brand-aqua-end/40 transition shadow-2xl bg-white/10 p-8 backdrop-blur-xl animate-fade-up">
             <div className="grid gap-10 md:grid-cols-2">
@@ -29,7 +36,7 @@ export default function Index() {
                   Ask the Ocean Anything – Explore ARGO Data with AI. Chat, visualize, and discover insights from millions of global ocean float observations.
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-4">
-                  <a href="#demo" className="group relative inline-flex items-center rounded-full px-6 py-3 text-sm font-semibold text-white">
+                  <a href="#demo" className="group relative inline-flex items-center rounded-full px-6 py-3 text-sm font-semibold text-white animate-pulse-glow">
                     <span className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end blur-md opacity-80 group-hover:opacity-100 transition" />
                     <span className="relative z-10 inline-flex items-center gap-2"><Play className="h-4 w-4"/> Try the Demo</span>
                   </a>
@@ -116,7 +123,7 @@ export default function Index() {
           <div className="animate-fade-up">
             <h2 className="text-3xl font-bold tracking-tight inline-flex items-center gap-2"><Map className="h-6 w-6 text-brand-cyan"/> See FloatChat in Action</h2>
             <p className="mt-3 text-foreground/70">Explore a preview of the chat + visualization experience. Ask questions, render maps and charts, and share results in seconds.</p>
-            <a href="#demo" className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end px-6 py-3 text-sm font-semibold text-white drop-shadow-glow"><Play className="h-4 w-4"/> Launch FloatChat Demo</a>
+            <a href="#demo" className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end px-6 py-3 text-sm font-semibold text-white drop-shadow-glow animate-pulse-glow"><Play className="h-4 w-4"/> Launch FloatChat Demo</a>
           </div>
           <div className="relative rounded-3xl border border-brand-aqua-start/30 ring-1 ring-brand-aqua-start/20 p-4 bg-white/60 backdrop-blur-sm shadow-xl animate-fade-up">
             <Tabs defaultValue="map">
@@ -126,8 +133,22 @@ export default function Index() {
                 <TabsTrigger value="profiles" className="data-[state=active]:text-brand-aqua-start inline-flex gap-2"><Waves className="h-4 w-4"/> Profiles</TabsTrigger>
               </TabsList>
               <TabsContent value="map" className="mt-4">
-                <div className="aspect-[16/10] overflow-hidden rounded-xl border border-brand-aqua-start/30 ring-1 ring-brand-aqua-start/20 bg-[radial-gradient(600px_200px_at_60%_-80px,hsl(var(--brand-cyan)/.25),transparent_70%)] p-4">
+                <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-brand-aqua-start/30 ring-1 ring-brand-aqua-start/20 bg-[radial-gradient(600px_200px_at_60%_-80px,hsl(var(--brand-cyan)/.25),transparent_70%)] p-4">
                   <div className="h-full w-full rounded-lg bg-[linear-gradient(0deg,transparent_96%,hsl(var(--brand-aqua-start)/.35)_96%),linear-gradient(90deg,transparent_96%,hsl(var(--brand-aqua-end)/.35)_96%)] bg-[length:24px_24px]" />
+                  <div className="pointer-events-none absolute inset-0">
+                    <span className="absolute left-[20%] top-[30%] grid place-items-center">
+                      <span className="h-2.5 w-2.5 rounded-full bg-brand-cyan drop-shadow-glow animate-bob" />
+                      <span className="absolute h-6 w-6 rounded-full border border-brand-cyan/60 animate-ping-slow" />
+                    </span>
+                    <span className="absolute left-[55%] top-[50%] grid place-items-center">
+                      <span className="h-2.5 w-2.5 rounded-full bg-brand-cyan drop-shadow-glow animate-bob" style={{ animationDelay: '0.4s' }} />
+                      <span className="absolute h-6 w-6 rounded-full border border-brand-cyan/60 animate-ping-slow" />
+                    </span>
+                    <span className="absolute left-[75%] top-[25%] grid place-items-center">
+                      <span className="h-2.5 w-2.5 rounded-full bg-brand-cyan drop-shadow-glow animate-bob" style={{ animationDelay: '0.8s' }} />
+                      <span className="absolute h-6 w-6 rounded-full border border-brand-cyan/60 animate-ping-slow" />
+                    </span>
+                  </div>
                 </div>
               </TabsContent>
               <TabsContent value="chart" className="mt-4">
