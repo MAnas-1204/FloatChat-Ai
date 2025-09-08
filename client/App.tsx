@@ -32,7 +32,10 @@ const App = () => (
           </main>
           <BrandFooter />
         </div>
+        {/* Theme Toggle */}
+        {/* Floating button to switch light/dark */}
       </BrowserRouter>
+      <ThemeToggle />
     </TooltipProvider>
   </QueryClientProvider>
 );
