@@ -142,35 +142,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Auth */}
-      <section id="auth" className="relative py-16">
-        <div className="container">
-          <div className="rounded-3xl border border-brand-aqua-start/30 ring-1 ring-brand-aqua-start/20 bg-white/60 p-6 backdrop-blur-sm shadow-md animate-fade-up">
-            <Tabs defaultValue="signin">
-              <TabsList className="bg-white/70 border border-white/60 rounded-xl">
-                <TabsTrigger value="signin" className="data-[state=active]:text-brand-aqua-start inline-flex gap-2"><Lock className="h-4 w-4"/> Sign In</TabsTrigger>
-                <TabsTrigger value="signup" className="data-[state=active]:text-brand-aqua-start inline-flex gap-2"><UserPlus className="h-4 w-4"/> Sign Up</TabsTrigger>
-              </TabsList>
-              <TabsContent value="signin" className="mt-4">
-                <form className="grid max-w-md gap-3" onSubmit={(e)=>{e.preventDefault(); toast.success('Signed in (demo)');}}>
-                  <label className="text-sm">Email<input type="email" required className="mt-1 w-full rounded-lg border border-brand-aqua-start/30 bg-white/90 px-3 py-2"/></label>
-                  <label className="text-sm">Password<input type="password" required className="mt-1 w-full rounded-lg border border-brand-aqua-start/30 bg-white/90 px-3 py-2"/></label>
-                  <button className="mt-1 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end px-5 py-2 text-sm font-semibold text-white drop-shadow-glow">Sign In</button>
-                </form>
-              </TabsContent>
-              <TabsContent value="signup" className="mt-4">
-                <form className="grid max-w-md gap-3" onSubmit={(e)=>{e.preventDefault(); toast.success('Signed up (demo)');}}>
-                  <label className="text-sm">Name<input type="text" required className="mt-1 w-full rounded-lg border border-brand-aqua-start/30 bg-white/90 px-3 py-2"/></label>
-                  <label className="text-sm">Email<input type="email" required className="mt-1 w-full rounded-lg border border-brand-aqua-start/30 bg-white/90 px-3 py-2"/></label>
-                  <label className="text-sm">Password<input type="password" required className="mt-1 w-full rounded-lg border border-brand-aqua-start/30 bg-white/90 px-3 py-2"/></label>
-                  <button className="mt-1 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end px-5 py-2 text-sm font-semibold text-white drop-shadow-glow">Create Account</button>
-                </form>
-              </TabsContent>
-            </Tabs>
-          </div>
-        </div>
-      </section>
-
       {/* Demo Preview */}
       <section id="demo" className="relative py-20">
         <div className="container grid items-start gap-10 md:grid-cols-2">
