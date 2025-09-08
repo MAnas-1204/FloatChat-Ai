@@ -11,6 +11,8 @@ const NAV = [
 
 export default function BrandHeader() {
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState<string>("home");
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
@@ -18,11 +20,31 @@ export default function BrandHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const ids = ["home", "about", "features", "demo", "contact"];
+    const io = new IntersectionObserver(
+      (entries) => {
+        const top = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (top?.target?.id) setActive(top.target.id);
+      },
+      { threshold: [0.25, 0.6], rootMargin: "-20% 0px -60% 0px" },
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+    return () => io.disconnect();
+  }, []);
+
   return (
     <header
       className={cn(
         "fixed top-0 inset-x-0 z-50 transition-all",
-        scrolled ? "backdrop-blur supports-[backdrop-filter]:bg-white/60 shadow-sm" : "bg-transparent",
+        scrolled
+          ? "backdrop-blur supports-[backdrop-filter]:bg-[hsl(var(--brand-ocean))]/80 text-white shadow-sm"
+          : "bg-transparent",
       )}
     >
       <div className="container flex items-center justify-between py-4">
@@ -32,16 +54,33 @@ export default function BrandHeader() {
         </a>
 
         <div className="hidden md:block">
-          <div className="inline-flex items-center gap-1 rounded-full border border-foreground/10 bg-white/60 px-2 py-1 backdrop-blur ring-1 ring-brand-aqua-start/20">
+          <div
+            className={cn(
+              "inline-flex items-center gap-1 rounded-full px-2 py-1 backdrop-blur",
+              scrolled
+                ? "border border-white/15 bg-white/10 ring-1 ring-white/20"
+                : "border border-foreground/10 bg-white/60 ring-1 ring-brand-aqua-start/20",
+            )}
+          >
             {NAV.map((item) => {
               const Icon = item.icon as any;
+              const isActive = active === item.href.replace("#", "");
               return (
                 <a
                   key={item.href}
                   href={item.href}
-                  className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm text-foreground/70 transition hover:bg-white hover:text-foreground border border-transparent hover:border-foreground/10"
+                  className={cn(
+                    "inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm border transition",
+                    scrolled
+                      ? "text-white/80 hover:text-white hover:bg-white/10 border-transparent hover:border-white/20"
+                      : "text-foreground/70 hover:text-foreground hover:bg-white border-transparent hover:border-foreground/10",
+                    isActive &&
+                      (scrolled
+                        ? "bg-white/15 text-white ring-1 ring-brand-cyan/40"
+                        : "bg-white text-foreground ring-1 ring-brand-aqua-start/30"),
+                  )}
                 >
-                  <Icon className="h-4 w-4 text-brand-aqua-start" />
+                  <Icon className={cn("h-4 w-4", scrolled ? "text-brand-cyan" : "text-brand-aqua-start")} />
                   {item.label}
                 </a>
               );
