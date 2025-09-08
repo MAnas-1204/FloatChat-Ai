@@ -3,6 +3,7 @@ import { Github, Linkedin } from "lucide-react";
 const LINKS = [
   { label: "Home", href: "#home" },
   { label: "Features", href: "#features" },
+  { label: "Chat", href: "#chat" },
   { label: "Demo", href: "#demo" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
