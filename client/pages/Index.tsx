@@ -234,7 +234,7 @@ export default function Index() {
                 <h4 className="mt-3 font-semibold">Human + AI</h4>
                 <p className="text-sm text-white/80">We craft conversations that turn data into narratives and decisions.</p>
               </div>
-              <div className="rounded-2xl border border-brand-aqua-start/20 bg-white/50 p-4 backdrop-blur-sm">
+              <div className="rounded-2xl border border-brand-aqua-start/20 bg-white/50 p-4 backdrop-blur-sm animate-fade-up" style={{animationDelay:'0.2s'}}>
                 <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white"><Map className="h-5 w-5"/></div>
                 <h4 className="mt-3 font-semibold">Science in Motion</h4>
                 <p className="text-sm text-white/80">Live maps, profiles, and visuals that breathe with real ARGO data.</p>
