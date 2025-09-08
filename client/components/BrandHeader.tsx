@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { Info, Sparkles, Map, Mail } from "lucide-react";
 
 const NAV = [
-  { label: "About", href: "#about" },
-  { label: "Features", href: "#features" },
-  { label: "Demo", href: "#demo" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "#about", icon: Info },
+  { label: "Features", href: "#features", icon: Sparkles },
+  { label: "Demo", href: "#demo", icon: Map },
+  { label: "Contact", href: "#contact", icon: Mail },
 ];
 
 export default function BrandHeader() {
@@ -30,17 +31,23 @@ export default function BrandHeader() {
           <span className="text-lg font-semibold tracking-tight">FloatChat <span className="text-brand-cyan">AI</span></span>
         </a>
 
-        <nav className="hidden md:flex items-center gap-6 text-sm">
-          {NAV.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-foreground/70 hover:text-foreground transition-colors"
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
+        <div className="hidden md:block">
+          <div className="inline-flex items-center gap-1 rounded-full border border-foreground/10 bg-white/60 px-2 py-1 backdrop-blur ring-1 ring-brand-aqua-start/20">
+            {NAV.map((item) => {
+              const Icon = item.icon as any;
+              return (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm text-foreground/70 transition hover:bg-white hover:text-foreground border border-transparent hover:border-foreground/10"
+                >
+                  <Icon className="h-4 w-4 text-brand-aqua-start" />
+                  {item.label}
+                </a>
+              );
+            })}
+          </div>
+        </div>
 
         <div className="flex items-center gap-2">
           <a
