@@ -71,12 +71,7 @@ export default function Index() {
               ARGO floats generate massive ocean data. It’s complex and hidden. FloatChat makes it simple: chat, explore, and visualize.
             </p>
           </div>
-          <div className="mt-10 grid gap-6 sm:grid-cols-3">
-            <div className="rounded-2xl bg-gradient-to-br from-brand-aqua-start/10 to-brand-aqua-end/10 p-6 ring-1 ring-brand-aqua-start/20">
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/80"><Waves className="h-5 w-5 text-brand-aqua-start"/></div>
-              <h3 className="mt-4 font-semibold">Ocean</h3>
-              <p className="text-sm text-foreground/70">Global ARGO network, decades of temperature, salinity, and pressure profiles.</p>
-            </div>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2">
             <div className="rounded-2xl bg-gradient-to-br from-brand-aqua-start/10 to-brand-aqua-end/10 p-6 ring-1 ring-brand-aqua-start/20">
               <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/80"><Bot className="h-5 w-5 text-brand-aqua-start"/></div>
               <h3 className="mt-4 font-semibold">AI</h3>
@@ -120,41 +115,6 @@ export default function Index() {
               </div>
             </div>
             <div className="pointer-events-none absolute -inset-1 -z-10 rounded-3xl opacity-60 blur-2xl [background:linear-gradient(135deg,hsl(var(--brand-aqua-start)),hsl(var(--brand-aqua-end)))]" />
-          </div>
-        </div>
-      </section>
-
-      {/* AI Chat Panel */}
-      <section id="chat" className="relative bg-[radial-gradient(1000px_300px_at_50%_-60px,hsl(var(--brand-aqua-start)/0.12),transparent_70%)] py-20">
-        <div className="container grid items-center gap-10 md:grid-cols-2">
-          <div>
-            <h2 className="text-3xl font-bold tracking-tight">Chat with the Ocean</h2>
-            <p className="mt-3 text-foreground/70">A conversational interface to query ARGO floats. The AI turns questions into data queries and visualizations.</p>
-            <a href="#demo" className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end px-6 py-3 text-sm font-semibold text-white drop-shadow-glow">Open Chat</a>
-          </div>
-          <div className="relative rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
-            <div className="flex items-center gap-3 rounded-xl border border-white/15 bg-white/10 px-4 py-3">
-              <div className="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white font-bold drop-shadow-glow">
-                <Sparkles className="h-4 w-4" />
-              </div>
-              <div>
-                <div className="text-sm font-semibold">AI Create</div>
-                <div className="text-xs text-white/70">Ocean Chat Model</div>
-              </div>
-            </div>
-            <div className="mt-4 space-y-3">
-              <div className="max-w-[85%] rounded-2xl bg-white/90 p-3 text-xs text-slate-800 shadow">Show mean temperature trend at 1000m in the North Atlantic.</div>
-              <div className="ml-auto max-w-[85%] rounded-2xl bg-gradient-to-r from-brand-aqua-start/20 to-brand-aqua-end/20 p-3 text-xs text-slate-900 ring-1 ring-brand-aqua-start/30">Median trend is +0.08°C/decade since 2010. Rendering map and time series…</div>
-              <div className="max-w-[85%] rounded-2xl bg-white/90 p-3 text-xs text-slate-800 shadow">Map float density and plot a monthly time series.</div>
-              <div className="rounded-xl border border-white/15 bg-white/10 p-3">
-                <div className="h-28 rounded-lg bg-gradient-to-tr from-brand-aqua-start/25 to-brand-aqua-end/25 ring-1 ring-brand-aqua-start/30" />
-              </div>
-            </div>
-            <form className="mt-4 flex items-center gap-2">
-              <input disabled placeholder="Type your question…" className="flex-1 rounded-full border border-white/20 bg-white/70 px-4 py-3 text-sm text-slate-800 placeholder:text-slate-500" />
-              <button disabled className="rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end px-5 py-2 text-sm font-semibold text-white opacity-60">Send</button>
-            </form>
-            <div className="pointer-events-none absolute -inset-0.5 -z-10 rounded-3xl opacity-70 blur-2xl [background:linear-gradient(135deg,hsl(var(--brand-aqua-start)),hsl(var(--brand-aqua-end)))]" />
           </div>
         </div>
       </section>
