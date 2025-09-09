@@ -12,6 +12,7 @@ import {
   Sparkles,
   Map,
   LineChart,
+  Atom,
   Mail,
   Send,
   User,
