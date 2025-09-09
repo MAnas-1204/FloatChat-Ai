@@ -4,7 +4,7 @@ import { supabase } from "@/lib/supabase";
 import FloatChatAvatar from "@/components/FloatChatAvatar";
 import { Send, Mic } from "lucide-react";
 
-type Row = { id: number; user: string; text: string; created_at: string };
+type Row = { id: number; user_email: string; text: string; created_at: string };
 
 function TypingDots() {
   return (
@@ -45,15 +45,15 @@ export default function ChatPage() {
       const { data, error } = await supabase
         .from("messages")
         .select("*")
-        .order("created_at", { ascending: true })
+        .order("created_at", { ascending: false })
         .limit(20);
-      if (!error && data) setMessages(data as Row[]);
+      if (!error && data) setMessages((data as Row[]).slice().reverse());
       setLoading(false);
     }
     load();
 
     const channel = supabase
-      .channel("public:messages")
+      .channel("chat-room")
       .on(
         "postgres_changes",
         { event: "INSERT", schema: "public", table: "messages" },
@@ -89,7 +89,7 @@ export default function ChatPage() {
     const text = input.trim();
     setInput("");
     setIsTyping(true);
-    const { error } = await supabase.from("messages").insert([{ user: sessionEmail, text }]);
+    const { error } = await supabase.from("messages").insert([{ user_email: sessionEmail, text }]);
     if (error) {
       // Non-intrusive: revert typing state
       setIsTyping(false);
@@ -107,13 +107,25 @@ export default function ChatPage() {
       <div className="container py-8">
         <div className="relative overflow-hidden rounded-3xl border border-white/20 ring-1 ring-brand-aqua-start/20 bg-white/90 dark:bg-white/5 backdrop-blur shadow-xl">
           <div className="absolute -inset-1 -z-10 opacity-50 blur-2xl [background:radial-gradient(800px_300px_at_50%_-80px,hsl(var(--brand-aqua-start)/.25),transparent_70%)]" />
-          <div className="px-6 py-6">{Header}</div>
+          <div className="px-6 pt-6">
+            <div className="flex items-center justify-between">
+              {Header}
+              <div className="ml-6 shrink-0 text-right">
+                <div className="text-xs text-foreground/70">Signed in as</div>
+                <div className="text-sm font-medium truncate max-w-[220px]">{sessionEmail}</div>
+                <button
+                  onClick={async ()=>{ await supabase.auth.signOut(); window.location.assign('/auth'); }}
+                  className="mt-1 inline-flex items-center rounded-full border border-brand-aqua-start/30 bg-white/90 px-3 py-1 text-xs font-semibold hover:bg-white"
+                >Logout</button>
+              </div>
+            </div>
+          </div>
           <div className="px-6 pb-6">
             <div className="grid gap-4">
               <div ref={listRef} className="h-[520px] overflow-y-auto rounded-xl border border-brand-aqua-start/30 dark:border-white/10 bg-[#f8f9fb] dark:bg-white/5 p-4">
                 {loading && <div className="text-center text-sm text-foreground/70">Loading messages…</div>}
                 {!loading && messages.map((m) => {
-                  const mine = m.user === sessionEmail;
+                  const mine = m.user_email === sessionEmail;
                   return (
                     <div key={m.id} className={"mt-2 flex items-start gap-2 " + (mine ? "justify-end" : "justify-start")}>
                       {!mine && <FloatChatAvatar className="h-8 w-8" />}
