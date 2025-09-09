@@ -20,6 +20,7 @@ import {
   UserPlus,
   Image as ImageIcon,
 } from "lucide-react";
+import Avatar from "@/components/FloatChatAvatar";
 import { toast } from "sonner";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import {
