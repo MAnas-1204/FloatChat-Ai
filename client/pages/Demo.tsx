@@ -1,6 +1,4 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import BrandHeader from "@/components/BrandHeader";
-import BrandFooter from "@/components/BrandFooter";
 import Bubbles from "@/components/Bubbles";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Send, Mic, MessageSquare, Map, LineChart, Waves } from "lucide-react";
@@ -212,6 +210,45 @@ export default function DemoPage() {
             </div>
           </section>
         </div>
+
+        {/* Team Section */}
+        <section className="py-12">
+          <div className="container">
+            <div className="relative overflow-hidden rounded-3xl border border-brand-aqua-start/30 dark:border-white/10 ring-1 ring-brand-aqua-start/20 dark:ring-white/10 bg-white/50 dark:bg-white/5 px-8 py-10 backdrop-blur-sm animate-fade-up">
+              <div className="absolute inset-0 -z-10 opacity-60 [mask-image:radial-gradient(400px_120px_at_50%_-40px,black,transparent_70%)]">
+                <svg className="absolute inset-x-0 -top-12 h-40 w-full opacity-30" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                  <path fill="hsl(var(--brand-cyan)/.3)" d="M0,64L60,74.7C120,85,240,107,360,133.3C480,160,600,192,720,181.3C840,171,960,117,1080,112C1200,107,1320,149,1380,170.7L1440,192L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"/>
+                </svg>
+              </div>
+              <div className="text-center">
+                <div className="inline-flex items-center gap-2 rounded-full border border-brand-aqua-start/30 dark:border-white/10 bg-white/60 dark:bg-white/10 px-3 py-1 text-xs text-foreground/70"><Waves className="h-3.5 w-3.5 text-brand-cyan"/> Oceanauts</div>
+                <h3 className="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight bg-clip-text text-transparent bg-[linear-gradient(90deg,hsl(var(--brand-aqua-start)),hsl(var(--brand-cyan)),hsl(var(--brand-aqua-end)))] bg-[length:200%_100%] animate-shimmer">Meet the Team</h3>
+                <p className="mt-2 text-foreground/70 max-w-2xl mx-auto">A multidisciplinary team shaping FloatChat AI.</p>
+              </div>
+
+              <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {[
+                  ["Angel Lakra", "Frontend Developer"],
+                  ["Shivam Kumar", "Frontend Developer"],
+                  ["Mohammad Anas", "Backend Developer"],
+                  ["Vivek Kumar Singh", "Backend Developer"],
+                  ["Vaibhav Khanna", "Backend Developer"],
+                  ["Tahasen Anjun", "Data Analyst"],
+                ].map(([name, role], i) => (
+                  <div key={name} className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/50 dark:bg-white/5 p-5 backdrop-blur-sm animate-fade-up" style={{animationDelay: `${i * 60}ms`}}>
+                    <div className="flex items-center gap-4">
+                      <img src={`https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(name as string)}&backgroundType=gradientLinear&radius=16`} alt={name as string} className="h-16 w-16 rounded-xl ring-1 ring-white/30" />
+                      <div>
+                        <h4 className="font-semibold">{name}</h4>
+                        <p className="text-sm text-foreground/70">{role}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );
