@@ -107,7 +107,18 @@ export default function BrandHeader() {
               scrolled ? "border-white/20 text-white/90 hover:text-white hover:bg-white/10" : "border-foreground/10 text-foreground/80 hover:bg-white",
             )}
           >
-            <User className="h-4 w-4" /> {email ? email : "Account"}
+            {email ? (
+              <span className="inline-flex items-center gap-2">
+                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white text-[10px] font-semibold">
+                  {email.charAt(0).toUpperCase()}
+                </span>
+                <span className="hidden sm:inline max-w-[140px] truncate">{email}</span>
+              </span>
+            ) : (
+              <>
+                <User className="h-4 w-4" /> Account
+              </>
+            )}
           </a>
           <a
             href="/demo"
