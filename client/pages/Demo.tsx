@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Bubbles from "@/components/Bubbles";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import FloatChatAvatar from "@/components/FloatChatAvatar";
 import { Send, Mic, MessageSquare, Map, LineChart, Waves } from "lucide-react";
 import {
   Area,
@@ -12,34 +13,6 @@ import {
   YAxis,
 } from "recharts";
 
-function AiAvatar() {
-  return (
-    <div
-      className="relative inline-flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white shadow-lg ring-2 ring-white/60 dark:ring-white/20 drop-shadow-glow"
-      aria-label="FloatChat AI avatar"
-    >
-      <svg viewBox="0 0 64 64" className="h-6 w-6">
-        <defs>
-          <linearGradient id="fishFin" x1="0" x2="1">
-            <stop offset="0" stopColor="#fff" stopOpacity="0.9" />
-            <stop offset="1" stopColor="#fff" stopOpacity="0.6" />
-          </linearGradient>
-        </defs>
-        {/* Simple fish icon */}
-        <g className="animate-bob" transform="translate(6,16)">
-          <ellipse cx="22" cy="16" rx="14" ry="10" fill="#fff" opacity="0.95" />
-          <polygon points="36,16 48,8 48,24" fill="url(#fishFin)" />
-          <circle cx="16" cy="14" r="2" fill="hsl(var(--brand-ocean))" />
-        </g>
-      </svg>
-      {/* Attention bubbles */}
-      <span className="absolute -top-0.5 -left-0.5 h-2 w-2 rounded-full bg-white/80 animate-ping-slow" />
-      <span className="absolute top-2 left-2 h-1.5 w-1.5 rounded-full bg-white/70 animate-ping-slow [animation-delay:200ms]" />
-      {/* Online dot */}
-      <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-[hsl(var(--brand-cyan))] ring-1 ring-white/80" />
-    </div>
-  );
-}
 
 function TypingDots() {
   return (
@@ -96,7 +69,7 @@ export default function DemoPage() {
     () => (
       <div className="text-center">
         <div className="inline-flex items-center justify-center gap-3">
-          <AiAvatar />
+          <FloatChatAvatar className="h-10 w-10" />
           <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-[hsl(var(--brand-ocean))] dark:text-white">
             FloatChat AI — Ocean Insights in Real Time
           </h1>
@@ -138,7 +111,7 @@ export default function DemoPage() {
                     <div ref={listRef} className="h-[420px] overflow-y-auto rounded-xl border border-brand-aqua-start/30 dark:border-white/10 bg-[#f8f9fb] dark:bg-white/5 p-4">
                       {messages.map((m) => (
                         <div key={m.id} className={"mt-2 flex items-start gap-2 " + (m.role === "user" ? "justify-end" : "justify-start") }>
-                          {m.role === "ai" && <AiAvatar />}
+                          {m.role === "ai" && <FloatChatAvatar className="h-8 w-8" />}
                           <div
                             className={
                               "max-w-[80%] rounded-2xl px-3 py-2 text-sm shadow transition-opacity animate-fade-up " +
@@ -153,7 +126,7 @@ export default function DemoPage() {
                       ))}
                       {isTyping && (
                         <div className="mt-2 flex items-start gap-2 justify-start">
-                          <AiAvatar />
+                          <FloatChatAvatar className="h-10 w-10" />
                           <div className="inline-flex items-center gap-2 rounded-2xl bg-white text-[hsl(var(--brand-ocean))] dark:bg-white/10 dark:text-white px-3 py-2 text-sm shadow">
                             <TypingDots />
                           </div>
