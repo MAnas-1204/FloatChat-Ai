@@ -15,6 +15,7 @@ export default function BrandFooter() {
         <div>
           <div className="flex items-center gap-2 text-lg font-semibold"><span>🌊</span>FloatChat AI</div>
           <p className="mt-3 text-sm text-foreground/70 max-w-sm">Ask the Ocean Anything – explore global ARGO float data with AI chat, interactive maps, and storytelling insights.</p>
+          <p className="mt-2 text-xs text-foreground/60">Built for Smart India Hackathon 2025</p>
         </div>
         <nav className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
           {LINKS.map((l) => (
@@ -29,6 +30,9 @@ export default function BrandFooter() {
           </a>
           <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" className="text-foreground/70 hover:text-foreground">
             <Linkedin className="h-5 w-5" />
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noreferrer" className="text-foreground/70 hover:text-foreground">
+            <Twitter className="h-5 w-5" />
           </a>
         </div>
       </div>
