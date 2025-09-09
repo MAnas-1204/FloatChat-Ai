@@ -5,10 +5,12 @@ import Avatar from "@/components/FloatChatAvatar";
 import { supabase } from "@/lib/supabase";
 
 const NAV = [
-  { label: "About", href: "#about", icon: Info },
+  { label: "Home", href: "#home", icon: Map },
   { label: "Features", href: "#features", icon: Sparkles },
   { label: "Demo", href: "#demo", icon: Map },
+  { label: "Team", href: "#team", icon: Info },
   { label: "Contact", href: "#contact", icon: Mail },
+  { label: "Auth", href: "/auth", icon: User },
 ];
 
 export default function BrandHeader() {
