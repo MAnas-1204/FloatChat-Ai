@@ -436,7 +436,7 @@ export default function Index() {
       </section>
 
       {/* Team Section */}
-      <section className="relative py-16">
+      <section id="team" className="relative py-16">
         <div className="container">
           <div className="relative overflow-hidden rounded-3xl border border-brand-aqua-start/30 dark:border-white/10 ring-1 ring-brand-aqua-start/20 dark:ring-white/10 bg-white/50 dark:bg-white/5 px-8 py-10 backdrop-blur-sm animate-fade-up">
             <div className="absolute inset-0 -z-10 opacity-60 [mask-image:radial-gradient(400px_120px_at_50%_-40px,black,transparent_70%)]">
