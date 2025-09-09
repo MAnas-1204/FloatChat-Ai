@@ -42,9 +42,15 @@ export default function BrandHeader() {
   }, []);
 
   useEffect(() => {
-    supabase.auth.getUser().then(({ data }) => setEmail(data.user?.email ?? null));
-    const { data: sub } = supabase.auth.onAuthStateChange((_e, s) => setEmail(s?.user?.email ?? null));
-    return () => { sub.subscription.unsubscribe(); };
+    supabase.auth
+      .getUser()
+      .then(({ data }) => setEmail(data.user?.email ?? null));
+    const { data: sub } = supabase.auth.onAuthStateChange((_e, s) =>
+      setEmail(s?.user?.email ?? null),
+    );
+    return () => {
+      sub.subscription.unsubscribe();
+    };
   }, []);
 
   return (
@@ -61,7 +67,9 @@ export default function BrandHeader() {
           <span aria-hidden>
             <Avatar className="h-7 w-7" />
           </span>
-          <span className="text-lg font-semibold tracking-tight">FloatChat <span className="text-brand-cyan">AI</span></span>
+          <span className="text-lg font-semibold tracking-tight">
+            FloatChat <span className="text-brand-cyan">AI</span>
+          </span>
         </a>
 
         <div className="hidden md:block">
@@ -91,7 +99,12 @@ export default function BrandHeader() {
                         : "bg-white text-foreground ring-1 ring-brand-aqua-start/30"),
                   )}
                 >
-                  <Icon className={cn("h-4 w-4", scrolled ? "text-brand-cyan" : "text-brand-aqua-start")} />
+                  <Icon
+                    className={cn(
+                      "h-4 w-4",
+                      scrolled ? "text-brand-cyan" : "text-brand-aqua-start",
+                    )}
+                  />
                   {item.label}
                 </a>
               );
@@ -104,7 +117,9 @@ export default function BrandHeader() {
             href="/auth"
             className={cn(
               "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm border transition",
-              scrolled ? "border-white/20 text-white/90 hover:text-white hover:bg-white/10" : "border-foreground/10 text-foreground/80 hover:bg-white",
+              scrolled
+                ? "border-white/20 text-white/90 hover:text-white hover:bg-white/10"
+                : "border-foreground/10 text-foreground/80 hover:bg-white",
             )}
           >
             {email ? (
@@ -112,7 +127,9 @@ export default function BrandHeader() {
                 <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white text-[10px] font-semibold">
                   {email.charAt(0).toUpperCase()}
                 </span>
-                <span className="hidden sm:inline max-w-[140px] truncate">{email}</span>
+                <span className="hidden sm:inline max-w-[140px] truncate">
+                  {email}
+                </span>
               </span>
             ) : (
               <>

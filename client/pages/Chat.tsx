@@ -36,7 +36,9 @@ export default function ChatPage() {
       setSessionEmail(email);
       if (!email) navigate("/auth", { replace: true });
     });
-    return () => { sub.subscription.unsubscribe(); };
+    return () => {
+      sub.subscription.unsubscribe();
+    };
   }, [navigate]);
 
   useEffect(() => {
@@ -60,11 +62,17 @@ export default function ChatPage() {
         (payload) => setMessages((prev) => [...prev, payload.new as Row]),
       )
       .subscribe();
-    return () => { supabase.removeChannel(channel); };
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
   useEffect(() => {
-    if (listRef.current) listRef.current.scrollTo({ top: listRef.current.scrollHeight, behavior: "smooth" });
+    if (listRef.current)
+      listRef.current.scrollTo({
+        top: listRef.current.scrollHeight,
+        behavior: "smooth",
+      });
   }, [messages, isTyping]);
 
   const Header = useMemo(
@@ -89,7 +97,9 @@ export default function ChatPage() {
     const text = input.trim();
     setInput("");
     setIsTyping(true);
-    const { error } = await supabase.from("messages").insert([{ user_email: sessionEmail, text }]);
+    const { error } = await supabase
+      .from("messages")
+      .insert([{ user_email: sessionEmail, text }]);
     if (error) {
       // Non-intrusive: revert typing state
       setIsTyping(false);
@@ -112,34 +122,57 @@ export default function ChatPage() {
               {Header}
               <div className="ml-6 shrink-0 text-right">
                 <div className="text-xs text-foreground/70">Signed in as</div>
-                <div className="text-sm font-medium truncate max-w-[220px]">{sessionEmail}</div>
+                <div className="text-sm font-medium truncate max-w-[220px]">
+                  {sessionEmail}
+                </div>
                 <button
-                  onClick={async ()=>{ await supabase.auth.signOut(); window.location.assign('/auth'); }}
+                  onClick={async () => {
+                    await supabase.auth.signOut();
+                    window.location.assign("/auth");
+                  }}
                   className="mt-1 inline-flex items-center rounded-full border border-brand-aqua-start/30 bg-white/90 px-3 py-1 text-xs font-semibold hover:bg-white"
-                >Logout</button>
+                >
+                  Logout
+                </button>
               </div>
             </div>
           </div>
           <div className="px-6 pb-6">
             <div className="grid gap-4">
-              <div ref={listRef} className="h-[520px] overflow-y-auto rounded-xl border border-brand-aqua-start/30 dark:border-white/10 bg-[#f8f9fb] dark:bg-white/5 p-4">
-                {loading && <div className="text-center text-sm text-foreground/70">Loading messages…</div>}
-                {!loading && messages.map((m) => {
-                  const mine = m.user_email === sessionEmail;
-                  return (
-                    <div key={m.id} className={"mt-2 flex items-start gap-2 " + (mine ? "justify-end" : "justify-start")}>
-                      {!mine && <FloatChatAvatar className="h-8 w-8" />}
-                      <div className={
-                        "max-w-[80%] rounded-2xl px-3 py-2 text-sm shadow animate-fade-up " +
-                        (mine
-                          ? "bg-[hsl(var(--brand-aqua-start))] text-white"
-                          : "bg-white text-[hsl(var(--brand-ocean))] dark:bg-white/10 dark:text-white")
-                      }>
-                        {m.text}
+              <div
+                ref={listRef}
+                className="h-[520px] overflow-y-auto rounded-xl border border-brand-aqua-start/30 dark:border-white/10 bg-[#f8f9fb] dark:bg-white/5 p-4"
+              >
+                {loading && (
+                  <div className="text-center text-sm text-foreground/70">
+                    Loading messages…
+                  </div>
+                )}
+                {!loading &&
+                  messages.map((m) => {
+                    const mine = m.user_email === sessionEmail;
+                    return (
+                      <div
+                        key={m.id}
+                        className={
+                          "mt-2 flex items-start gap-2 " +
+                          (mine ? "justify-end" : "justify-start")
+                        }
+                      >
+                        {!mine && <FloatChatAvatar className="h-8 w-8" />}
+                        <div
+                          className={
+                            "max-w-[80%] rounded-2xl px-3 py-2 text-sm shadow animate-fade-up " +
+                            (mine
+                              ? "bg-[hsl(var(--brand-aqua-start))] text-white"
+                              : "bg-white text-[hsl(var(--brand-ocean))] dark:bg-white/10 dark:text-white")
+                          }
+                        >
+                          {m.text}
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
                 {isTyping && (
                   <div className="mt-2 flex items-start gap-2 justify-start">
                     <FloatChatAvatar className="h-8 w-8" />
@@ -159,7 +192,10 @@ export default function ChatPage() {
                   placeholder="Ask about ocean data…"
                   className="flex-1 bg-transparent px-2 py-2 text-sm outline-none placeholder:text-foreground/50"
                 />
-                <button onClick={send} className="inline-flex items-center gap-2 rounded-full bg-[hsl(var(--brand-aqua-start))] px-4 py-2 text-sm font-semibold text-white hover:brightness-110">
+                <button
+                  onClick={send}
+                  className="inline-flex items-center gap-2 rounded-full bg-[hsl(var(--brand-aqua-start))] px-4 py-2 text-sm font-semibold text-white hover:brightness-110"
+                >
                   <Send className="h-4 w-4" /> Send
                 </button>
                 <button className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-foreground/10 text-foreground/70 hover:bg-white/70 dark:border-white/15 dark:text-white/80 dark:hover:bg-white/10">

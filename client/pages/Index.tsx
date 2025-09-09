@@ -352,7 +352,10 @@ export default function Index() {
                   <Waves className="h-4 w-4" /> Profiles
                 </TabsTrigger>
               </TabsList>
-              <TabsContent value="map" className="mt-4 transition-opacity duration-300 data-[state=inactive]:opacity-0 data-[state=active]:opacity-100">
+              <TabsContent
+                value="map"
+                className="mt-4 transition-opacity duration-300 data-[state=inactive]:opacity-0 data-[state=active]:opacity-100"
+              >
                 <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-brand-aqua-start/30 ring-1 ring-brand-aqua-start/20 bg-[radial-gradient(600px_200px_at_60%_-80px,hsl(var(--brand-cyan)/.25),transparent_70%)] p-4">
                   <div className="h-full w-full rounded-lg bg-[linear-gradient(0deg,transparent_96%,hsl(var(--brand-aqua-start)/.35)_96%),linear-gradient(90deg,transparent_96%,hsl(var(--brand-aqua-end)/.35)_96%)] bg-[length:24px_24px]" />
                   <div className="pointer-events-none absolute inset-0">
@@ -377,7 +380,10 @@ export default function Index() {
                   </div>
                 </div>
               </TabsContent>
-              <TabsContent value="chart" className="mt-4 transition-opacity duration-300 data-[state=inactive]:opacity-0 data-[state=active]:opacity-100">
+              <TabsContent
+                value="chart"
+                className="mt-4 transition-opacity duration-300 data-[state=inactive]:opacity-0 data-[state=active]:opacity-100"
+              >
                 <div className="aspect-[16/10] rounded-xl border border-brand-aqua-start/30 dark:border-white/10 ring-1 ring-brand-aqua-start/20 dark:ring-white/10 bg-white/80 dark:bg-white/5 p-4">
                   <div className="grid h-full grid-cols-12 items-end gap-1">
                     {Array.from({ length: 12 }).map((_, i) => (
@@ -393,7 +399,10 @@ export default function Index() {
                   </div>
                 </div>
               </TabsContent>
-              <TabsContent value="profiles" className="mt-4 transition-opacity duration-300 data-[state=inactive]:opacity-0 data-[state=active]:opacity-100">
+              <TabsContent
+                value="profiles"
+                className="mt-4 transition-opacity duration-300 data-[state=inactive]:opacity-0 data-[state=active]:opacity-100"
+              >
                 <div className="aspect-[16/10] rounded-xl border border-brand-aqua-start/30 dark:border-white/10 ring-1 ring-brand-aqua-start/20 dark:ring-white/10 bg-white/80 dark:bg-white/5 p-4">
                   <svg viewBox="0 0 400 200" className="h-full w-full">
                     <defs>
@@ -431,105 +440,213 @@ export default function Index() {
         <div className="container">
           <div className="relative overflow-hidden rounded-3xl border border-brand-aqua-start/30 dark:border-white/10 ring-1 ring-brand-aqua-start/20 dark:ring-white/10 bg-white/50 dark:bg-white/5 px-8 py-10 backdrop-blur-sm animate-fade-up">
             <div className="absolute inset-0 -z-10 opacity-60 [mask-image:radial-gradient(400px_120px_at_50%_-40px,black,transparent_70%)]">
-              <svg className="absolute inset-x-0 -top-12 h-40 w-full opacity-30" viewBox="0 0 1440 320" preserveAspectRatio="none">
-                <path fill="hsl(var(--brand-cyan)/.3)" d="M0,64L60,74.7C120,85,240,107,360,133.3C480,160,600,192,720,181.3C840,171,960,117,1080,112C1200,107,1320,149,1380,170.7L1440,192L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"/>
+              <svg
+                className="absolute inset-x-0 -top-12 h-40 w-full opacity-30"
+                viewBox="0 0 1440 320"
+                preserveAspectRatio="none"
+              >
+                <path
+                  fill="hsl(var(--brand-cyan)/.3)"
+                  d="M0,64L60,74.7C120,85,240,107,360,133.3C480,160,600,192,720,181.3C840,171,960,117,1080,112C1200,107,1320,149,1380,170.7L1440,192L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
+                />
               </svg>
             </div>
             <div className="text-center">
               <div className="inline-flex items-center gap-2 rounded-full border border-brand-aqua-start/30 dark:border-white/10 bg-white/60 dark:bg-white/10 px-3 py-1 text-xs text-foreground/70">
                 <Sparkles className="h-3.5 w-3.5 text-brand-cyan" /> Team
               </div>
-              <h3 className="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-[linear-gradient(90deg,hsl(var(--brand-aqua-start)),hsl(var(--brand-cyan)),hsl(var(--brand-aqua-end)))] bg-[length:200%_100%] animate-shimmer">Meet the Oceanauts</h3>
-              <p className="mt-2 text-foreground/70 max-w-2xl mx-auto">A multidisciplinary team shaping FloatChat AI.</p>
+              <h3 className="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-[linear-gradient(90deg,hsl(var(--brand-aqua-start)),hsl(var(--brand-cyan)),hsl(var(--brand-aqua-end)))] bg-[length:200%_100%] animate-shimmer">
+                Meet the Oceanauts
+              </h3>
+              <p className="mt-2 text-foreground/70 max-w-2xl mx-auto">
+                A multidisciplinary team shaping FloatChat AI.
+              </p>
             </div>
 
             {/* Members */}
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               <div className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/50 dark:bg-white/5 p-5 backdrop-blur-sm animate-fade-up">
                 <div className="flex items-center gap-4">
-                  <img src="https://api.dicebear.com/7.x/initials/svg?seed=Angel%20Lakra&backgroundType=gradientLinear&radius=16" alt="Angel Lakra" className="h-16 w-16 rounded-xl ring-1 ring-white/30" />
+                  <img
+                    src="https://api.dicebear.com/7.x/initials/svg?seed=Angel%20Lakra&backgroundType=gradientLinear&radius=16"
+                    alt="Angel Lakra"
+                    className="h-16 w-16 rounded-xl ring-1 ring-white/30"
+                  />
                   <div>
                     <h4 className="font-semibold">Angel Lakra</h4>
-                    <p className="text-sm text-foreground/70">Frontend Developer</p>
+                    <p className="text-sm text-foreground/70">
+                      Frontend Developer
+                    </p>
                   </div>
                 </div>
-                <p className="mt-3 text-sm text-foreground/80">Designing intuitive user interfaces and crafting smooth user experiences.</p>
+                <p className="mt-3 text-sm text-foreground/80">
+                  Designing intuitive user interfaces and crafting smooth user
+                  experiences.
+                </p>
               </div>
-              <div className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/50 dark:bg-white/5 p-5 backdrop-blur-sm animate-fade-up" style={{animationDelay:'0.05s'}}>
+              <div
+                className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/50 dark:bg-white/5 p-5 backdrop-blur-sm animate-fade-up"
+                style={{ animationDelay: "0.05s" }}
+              >
                 <div className="flex items-center gap-4">
-                  <img src="https://api.dicebear.com/7.x/initials/svg?seed=Shivam%20Kumar&backgroundType=gradientLinear&radius=16" alt="Shivam Kumar" className="h-16 w-16 rounded-xl ring-1 ring-white/30" />
+                  <img
+                    src="https://api.dicebear.com/7.x/initials/svg?seed=Shivam%20Kumar&backgroundType=gradientLinear&radius=16"
+                    alt="Shivam Kumar"
+                    className="h-16 w-16 rounded-xl ring-1 ring-white/30"
+                  />
                   <div>
                     <h4 className="font-semibold">Shivam Kumar</h4>
-                    <p className="text-sm text-foreground/70">Frontend Developer</p>
+                    <p className="text-sm text-foreground/70">
+                      Frontend Developer
+                    </p>
                   </div>
                 </div>
-                <p className="mt-3 text-sm text-foreground/80">Transforming ideas into responsive and interactive designs.</p>
+                <p className="mt-3 text-sm text-foreground/80">
+                  Transforming ideas into responsive and interactive designs.
+                </p>
               </div>
-              <div className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/50 dark:bg-white/5 p-5 backdrop-blur-sm animate-fade-up" style={{animationDelay:'0.1s'}}>
+              <div
+                className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/50 dark:bg-white/5 p-5 backdrop-blur-sm animate-fade-up"
+                style={{ animationDelay: "0.1s" }}
+              >
                 <div className="flex items-center gap-4">
-                  <img src="https://api.dicebear.com/7.x/initials/svg?seed=Mohammad%20Anas&backgroundType=gradientLinear&radius=16" alt="Mohammad Anas" className="h-16 w-16 rounded-xl ring-1 ring-white/30" />
+                  <img
+                    src="https://api.dicebear.com/7.x/initials/svg?seed=Mohammad%20Anas&backgroundType=gradientLinear&radius=16"
+                    alt="Mohammad Anas"
+                    className="h-16 w-16 rounded-xl ring-1 ring-white/30"
+                  />
                   <div>
                     <h4 className="font-semibold">Mohammad Anas</h4>
-                    <p className="text-sm text-foreground/70">Backend Developer</p>
+                    <p className="text-sm text-foreground/70">
+                      Backend Developer
+                    </p>
                   </div>
                 </div>
-                <p className="mt-3 text-sm text-foreground/80">Architecting scalable systems and ensuring robust backend performance.</p>
+                <p className="mt-3 text-sm text-foreground/80">
+                  Architecting scalable systems and ensuring robust backend
+                  performance.
+                </p>
               </div>
-              <div className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/50 dark:bg-white/5 p-5 backdrop-blur-sm animate-fade-up" style={{animationDelay:'0.15s'}}>
+              <div
+                className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/50 dark:bg-white/5 p-5 backdrop-blur-sm animate-fade-up"
+                style={{ animationDelay: "0.15s" }}
+              >
                 <div className="flex items-center gap-4">
-                  <img src="https://api.dicebear.com/7.x/initials/svg?seed=Vivek%20Kumar%20Singh&backgroundType=gradientLinear&radius=16" alt="Vivek Kumar Singh" className="h-16 w-16 rounded-xl ring-1 ring-white/30" />
+                  <img
+                    src="https://api.dicebear.com/7.x/initials/svg?seed=Vivek%20Kumar%20Singh&backgroundType=gradientLinear&radius=16"
+                    alt="Vivek Kumar Singh"
+                    className="h-16 w-16 rounded-xl ring-1 ring-white/30"
+                  />
                   <div>
                     <h4 className="font-semibold">Vivek Kumar Singh</h4>
-                    <p className="text-sm text-foreground/70">Backend Developer</p>
+                    <p className="text-sm text-foreground/70">
+                      Backend Developer
+                    </p>
                   </div>
                 </div>
-                <p className="mt-3 text-sm text-foreground/80">Building secure APIs and managing data-driven workflows.</p>
+                <p className="mt-3 text-sm text-foreground/80">
+                  Building secure APIs and managing data-driven workflows.
+                </p>
               </div>
-              <div className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/50 dark:bg-white/5 p-5 backdrop-blur-sm animate-fade-up" style={{animationDelay:'0.2s'}}>
+              <div
+                className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/50 dark:bg-white/5 p-5 backdrop-blur-sm animate-fade-up"
+                style={{ animationDelay: "0.2s" }}
+              >
                 <div className="flex items-center gap-4">
-                  <img src="https://api.dicebear.com/7.x/initials/svg?seed=Vaibhav%20Khanna&backgroundType=gradientLinear&radius=16" alt="Vaibhav Khanna" className="h-16 w-16 rounded-xl ring-1 ring-white/30" />
+                  <img
+                    src="https://api.dicebear.com/7.x/initials/svg?seed=Vaibhav%20Khanna&backgroundType=gradientLinear&radius=16"
+                    alt="Vaibhav Khanna"
+                    className="h-16 w-16 rounded-xl ring-1 ring-white/30"
+                  />
                   <div>
                     <h4 className="font-semibold">Vaibhav Khanna</h4>
-                    <p className="text-sm text-foreground/70">Backend Developer</p>
+                    <p className="text-sm text-foreground/70">
+                      Backend Developer
+                    </p>
                   </div>
                 </div>
-                <p className="mt-3 text-sm text-foreground/80">Optimizing performance and streamlining integrations for FloatChat AI.</p>
+                <p className="mt-3 text-sm text-foreground/80">
+                  Optimizing performance and streamlining integrations for
+                  FloatChat AI.
+                </p>
               </div>
-              <div className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/50 dark:bg-white/5 p-5 backdrop-blur-sm animate-fade-up" style={{animationDelay:'0.25s'}}>
+              <div
+                className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/50 dark:bg-white/5 p-5 backdrop-blur-sm animate-fade-up"
+                style={{ animationDelay: "0.25s" }}
+              >
                 <div className="flex items-center gap-4">
-                  <img src="https://api.dicebear.com/7.x/initials/svg?seed=Tahasen%20Anjun&backgroundType=gradientLinear&radius=16" alt="Tahasen Anjun" className="h-16 w-16 rounded-xl ring-1 ring-white/30" />
+                  <img
+                    src="https://api.dicebear.com/7.x/initials/svg?seed=Tahasen%20Anjun&backgroundType=gradientLinear&radius=16"
+                    alt="Tahasen Anjun"
+                    className="h-16 w-16 rounded-xl ring-1 ring-white/30"
+                  />
                   <div>
                     <h4 className="font-semibold">Tahasen Anjun</h4>
                     <p className="text-sm text-foreground/70">Data Analyst</p>
                   </div>
                 </div>
-                <p className="mt-3 text-sm text-foreground/80">Handling ARGO datasets, preprocessing data, and creating insightful visualizations.</p>
+                <p className="mt-3 text-sm text-foreground/80">
+                  Handling ARGO datasets, preprocessing data, and creating
+                  insightful visualizations.
+                </p>
               </div>
             </div>
 
             {/* Grouped lists */}
             <div className="mt-8 grid gap-3 text-sm text-foreground/80">
-              <div><span className="font-semibold">Frontend Team (2):</span> Angel Lakra, Shivam Kumar</div>
-              <div><span className="font-semibold">Backend Team (3):</span> Mohammad Anas, Vivek Kumar Singh, Vaibhav Khanna</div>
-              <div><span className="font-semibold">Data Team (1):</span> Tahasen Anjun</div>
+              <div>
+                <span className="font-semibold">Frontend Team (2):</span> Angel
+                Lakra, Shivam Kumar
+              </div>
+              <div>
+                <span className="font-semibold">Backend Team (3):</span>{" "}
+                Mohammad Anas, Vivek Kumar Singh, Vaibhav Khanna
+              </div>
+              <div>
+                <span className="font-semibold">Data Team (1):</span> Tahasen
+                Anjun
+              </div>
             </div>
 
             {/* Values */}
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              <div className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/50 dark:bg-white/5 p-4 backdrop-blur-sm animate-fade-up" style={{animationDelay:'0s'}}>
-                <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white"><Waves className="h-5 w-5"/></div>
+              <div
+                className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/50 dark:bg-white/5 p-4 backdrop-blur-sm animate-fade-up"
+                style={{ animationDelay: "0s" }}
+              >
+                <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white">
+                  <Waves className="h-5 w-5" />
+                </div>
                 <h4 className="mt-3 font-semibold">Ocean-first design</h4>
-                <p className="text-sm text-foreground/70">Every interaction feels like water—fluid, calm, and precise.</p>
+                <p className="text-sm text-foreground/70">
+                  Every interaction feels like water—fluid, calm, and precise.
+                </p>
               </div>
-              <div className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/50 dark:bg-white/5 p-4 backdrop-blur-sm animate-fade-up" style={{animationDelay:'0.1s'}}>
-                <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white"><Bot className="h-5 w-5"/></div>
+              <div
+                className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/50 dark:bg-white/5 p-4 backdrop-blur-sm animate-fade-up"
+                style={{ animationDelay: "0.1s" }}
+              >
+                <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white">
+                  <Bot className="h-5 w-5" />
+                </div>
                 <h4 className="mt-3 font-semibold">Human + AI</h4>
-                <p className="text-sm text-foreground/70">We craft conversations that turn data into narratives and decisions.</p>
+                <p className="text-sm text-foreground/70">
+                  We craft conversations that turn data into narratives and
+                  decisions.
+                </p>
               </div>
-              <div className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/50 dark:bg-white/5 p-4 backdrop-blur-sm animate-fade-up" style={{animationDelay:'0.2s'}}>
-                <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white"><Atom className="h-5 w-5"/></div>
+              <div
+                className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/50 dark:bg-white/5 p-4 backdrop-blur-sm animate-fade-up"
+                style={{ animationDelay: "0.2s" }}
+              >
+                <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white">
+                  <Atom className="h-5 w-5" />
+                </div>
                 <h4 className="mt-3 font-semibold">Science in Motion</h4>
-                <p className="text-sm text-foreground/70">Live maps, profiles, and visuals that breathe with real ARGO data.</p>
+                <p className="text-sm text-foreground/70">
+                  Live maps, profiles, and visuals that breathe with real ARGO
+                  data.
+                </p>
               </div>
             </div>
 
@@ -542,19 +659,28 @@ export default function Index() {
       <section id="impact" className="relative py-16">
         <div className="container">
           <div className="rounded-3xl border border-brand-aqua-start/30 dark:border-white/10 ring-1 ring-brand-aqua-start/20 dark:ring-white/10 bg-white/50 dark:bg-white/5 p-8 backdrop-blur-sm animate-fade-up">
-            <h2 className="text-center text-3xl font-bold tracking-tight inline-flex items-center gap-2 justify-center"><Sparkles className="h-6 w-6 text-brand-cyan"/> Why FloatChat Matters</h2>
+            <h2 className="text-center text-3xl font-bold tracking-tight inline-flex items-center gap-2 justify-center">
+              <Sparkles className="h-6 w-6 text-brand-cyan" /> Why FloatChat
+              Matters
+            </h2>
             <div className="mt-8 grid gap-6 sm:grid-cols-3">
               <div className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/60 dark:bg-white/10 p-6 text-center">
                 <div className="text-2xl">🌊</div>
-                <div className="mt-2 text-lg font-semibold">4,000+ ARGO floats worldwide</div>
+                <div className="mt-2 text-lg font-semibold">
+                  4,000+ ARGO floats worldwide
+                </div>
               </div>
               <div className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/60 dark:bg-white/10 p-6 text-center">
                 <div className="text-2xl">🤖</div>
-                <div className="mt-2 text-lg font-semibold">AI-powered interface makes complex datasets accessible</div>
+                <div className="mt-2 text-lg font-semibold">
+                  AI-powered interface makes complex datasets accessible
+                </div>
               </div>
               <div className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/60 dark:bg-white/10 p-6 text-center">
                 <div className="text-2xl">🎓</div>
-                <div className="mt-2 text-lg font-semibold">For students, researchers, and innovators</div>
+                <div className="mt-2 text-lg font-semibold">
+                  For students, researchers, and innovators
+                </div>
               </div>
             </div>
           </div>
@@ -565,7 +691,9 @@ export default function Index() {
       <section id="contact" className="relative py-20">
         <div className="container rounded-3xl border border-brand-aqua-start/30 dark:border-white/10 bg-white/50 dark:bg-white/5 ring-1 ring-brand-aqua-start/20 dark:ring-white/10 overflow-hidden">
           <div className="flex items-center justify-center gap-2 border-b border-brand-aqua-start/20 dark:border-white/10 bg-white/70 dark:bg-white/10 px-6 py-4">
-            <span aria-hidden><Avatar className="h-7 w-7"/></span>
+            <span aria-hidden>
+              <Avatar className="h-7 w-7" />
+            </span>
             <span className="font-semibold tracking-tight">
               FloatChat <span className="text-brand-cyan">AI</span>
             </span>

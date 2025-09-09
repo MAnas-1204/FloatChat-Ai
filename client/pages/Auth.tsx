@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { supabase } from '@/lib/supabase';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
-import { toast } from 'sonner';
-import { Lock, UserPlus } from 'lucide-react';
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "@/lib/supabase";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { toast } from "sonner";
+import { Lock, UserPlus } from "lucide-react";
 
 export default function AuthPage() {
   const [loading, setLoading] = useState(false);
@@ -11,33 +11,50 @@ export default function AuthPage() {
 
   const navigate = useNavigate();
   useEffect(() => {
-    supabase.auth.getUser().then(({ data }) => setSessionEmail(data.user?.email ?? null));
-    const { data: sub } = supabase.auth.onAuthStateChange((_e, s) => setSessionEmail(s?.user?.email ?? null));
-    return () => { sub.subscription.unsubscribe(); };
+    supabase.auth
+      .getUser()
+      .then(({ data }) => setSessionEmail(data.user?.email ?? null));
+    const { data: sub } = supabase.auth.onAuthStateChange((_e, s) =>
+      setSessionEmail(s?.user?.email ?? null),
+    );
+    return () => {
+      sub.subscription.unsubscribe();
+    };
   }, []);
   useEffect(() => {
-    if (sessionEmail) navigate('/chat', { replace: true });
+    if (sessionEmail) navigate("/chat", { replace: true });
   }, [sessionEmail, navigate]);
-
 
   return (
     <div className="container py-24">
       <div className="mx-auto max-w-xl rounded-3xl border border-brand-aqua-start/30 ring-1 ring-brand-aqua-start/20 bg-white/70 p-8 backdrop-blur">
         <h1 className="text-3xl font-bold tracking-tight">Account</h1>
         {sessionEmail && (
-          <div className="mt-2 text-sm text-foreground/70">Signed in as <span className="font-semibold">{sessionEmail}</span></div>
+          <div className="mt-2 text-sm text-foreground/70">
+            Signed in as <span className="font-semibold">{sessionEmail}</span>
+          </div>
         )}
 
         {!sessionEmail && (
           <div className="mt-4 grid gap-2">
             <button
-              onClick={async ()=>{ await supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: window.location.origin + '/chat' } }); }}
+              onClick={async () => {
+                await supabase.auth.signInWithOAuth({
+                  provider: "google",
+                  options: { redirectTo: window.location.origin + "/chat" },
+                });
+              }}
               className="inline-flex items-center justify-center gap-2 rounded-full border border-brand-aqua-start/30 bg-white px-5 py-2 text-sm font-semibold hover:bg-white/80"
             >
               Continue with Google
             </button>
             <button
-              onClick={async ()=>{ await supabase.auth.signInWithOAuth({ provider: 'github', options: { redirectTo: window.location.origin + '/chat' } }); }}
+              onClick={async () => {
+                await supabase.auth.signInWithOAuth({
+                  provider: "github",
+                  options: { redirectTo: window.location.origin + "/chat" },
+                });
+              }}
               className="inline-flex items-center justify-center gap-2 rounded-full border border-brand-aqua-start/30 bg-white px-5 py-2 text-sm font-semibold hover:bg-white/80"
             >
               Continue with GitHub
@@ -46,11 +63,24 @@ export default function AuthPage() {
           </div>
         )}
 
-        <Tabs defaultValue={sessionEmail ? 'session' : 'signin'} className="mt-4">
+        <Tabs
+          defaultValue={sessionEmail ? "session" : "signin"}
+          className="mt-4"
+        >
           {!sessionEmail && (
             <TabsList className="bg-white/80 border border-white/60 rounded-xl">
-              <TabsTrigger value="signin" className="data-[state=active]:text-brand-aqua-start inline-flex gap-2"><Lock className="h-4 w-4"/> Sign In</TabsTrigger>
-              <TabsTrigger value="signup" className="data-[state=active]:text-brand-aqua-start inline-flex gap-2"><UserPlus className="h-4 w-4"/> Sign Up</TabsTrigger>
+              <TabsTrigger
+                value="signin"
+                className="data-[state=active]:text-brand-aqua-start inline-flex gap-2"
+              >
+                <Lock className="h-4 w-4" /> Sign In
+              </TabsTrigger>
+              <TabsTrigger
+                value="signup"
+                className="data-[state=active]:text-brand-aqua-start inline-flex gap-2"
+              >
+                <UserPlus className="h-4 w-4" /> Sign Up
+              </TabsTrigger>
             </TabsList>
           )}
 
@@ -68,7 +98,10 @@ export default function AuthPage() {
           {sessionEmail && (
             <TabsContent value="session" className="mt-4">
               <button
-                onClick={async () => { await supabase.auth.signOut(); toast.success('Signed out'); }}
+                onClick={async () => {
+                  await supabase.auth.signOut();
+                  toast.success("Signed out");
+                }}
                 className="inline-flex items-center rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end px-6 py-2 text-sm font-semibold text-white drop-shadow-glow"
               >
                 Sign out
@@ -81,28 +114,31 @@ export default function AuthPage() {
   );
 }
 
-function AuthForm({ mode }: { mode: 'signin' | 'signup' }) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+function AuthForm({ mode }: { mode: "signin" | "signup" }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
     try {
-      if (mode === 'signin') {
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
+      if (mode === "signin") {
+        const { error } = await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
         if (error) throw error;
-        toast.success('Signed in');
-        window.location.assign('/chat');
+        toast.success("Signed in");
+        window.location.assign("/chat");
       } else {
         const { error } = await supabase.auth.signUp({ email, password });
         if (error) throw error;
-        toast.success('Signed up – check your email');
-        window.location.assign('/chat');
+        toast.success("Signed up – check your email");
+        window.location.assign("/chat");
       }
     } catch (err: any) {
-      toast.error(err.message ?? 'Auth error');
+      toast.error(err.message ?? "Auth error");
     } finally {
       setLoading(false);
     }
@@ -110,9 +146,36 @@ function AuthForm({ mode }: { mode: 'signin' | 'signup' }) {
 
   return (
     <form onSubmit={onSubmit} className="grid gap-3">
-      <label className="text-sm">Email<input type="email" required value={email} onChange={(e)=>setEmail(e.target.value)} className="mt-1 w-full rounded-lg border border-brand-aqua-start/30 bg-white/90 px-3 py-2"/></label>
-      <label className="text-sm">Password<input type="password" required value={password} onChange={(e)=>setPassword(e.target.value)} className="mt-1 w-full rounded-lg border border-brand-aqua-start/30 bg-white/90 px-3 py-2"/></label>
-      <button disabled={loading} className="mt-1 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end px-5 py-2 text-sm font-semibold text-white drop-shadow-glow disabled:opacity-60">{loading ? 'Please wait…' : mode === 'signin' ? 'Sign In' : 'Create Account'}</button>
+      <label className="text-sm">
+        Email
+        <input
+          type="email"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="mt-1 w-full rounded-lg border border-brand-aqua-start/30 bg-white/90 px-3 py-2"
+        />
+      </label>
+      <label className="text-sm">
+        Password
+        <input
+          type="password"
+          required
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="mt-1 w-full rounded-lg border border-brand-aqua-start/30 bg-white/90 px-3 py-2"
+        />
+      </label>
+      <button
+        disabled={loading}
+        className="mt-1 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end px-5 py-2 text-sm font-semibold text-white drop-shadow-glow disabled:opacity-60"
+      >
+        {loading
+          ? "Please wait…"
+          : mode === "signin"
+            ? "Sign In"
+            : "Create Account"}
+      </button>
     </form>
   );
 }
