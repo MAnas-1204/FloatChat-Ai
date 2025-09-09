@@ -565,9 +565,7 @@ export default function Index() {
       <section id="contact" className="relative py-20">
         <div className="container rounded-3xl border border-brand-aqua-start/30 dark:border-white/10 bg-white/50 dark:bg-white/5 ring-1 ring-brand-aqua-start/20 dark:ring-white/10 overflow-hidden">
           <div className="flex items-center justify-center gap-2 border-b border-brand-aqua-start/20 dark:border-white/10 bg-white/70 dark:bg-white/10 px-6 py-4">
-            <span className="text-xl" aria-hidden>
-              🌊
-            </span>
+            <span aria-hidden><Avatar className="h-7 w-7"/></span>
             <span className="font-semibold tracking-tight">
               FloatChat <span className="text-brand-cyan">AI</span>
             </span>
