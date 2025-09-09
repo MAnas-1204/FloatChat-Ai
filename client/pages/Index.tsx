@@ -526,7 +526,7 @@ export default function Index() {
                 <p className="text-sm text-foreground/70">We craft conversations that turn data into narratives and decisions.</p>
               </div>
               <div className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/50 dark:bg-white/5 p-4 backdrop-blur-sm animate-fade-up" style={{animationDelay:'0.2s'}}>
-                <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white"><LineChart className="h-5 w-5"/></div>
+                <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white"><Atom className="h-5 w-5"/></div>
                 <h4 className="mt-3 font-semibold">Science in Motion</h4>
                 <p className="text-sm text-foreground/70">Live maps, profiles, and visuals that breathe with real ARGO data.</p>
               </div>
