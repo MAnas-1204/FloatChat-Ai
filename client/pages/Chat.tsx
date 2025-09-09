@@ -116,7 +116,12 @@ export default function ChatPage() {
     <div className="min-h-screen bg-[linear-gradient(135deg,hsl(var(--brand-ocean)),hsl(var(--brand-aqua-start))_60%,hsl(var(--brand-aqua-end)))] pt-20">
       <div className="container py-8">
         <div className="mb-4">
-          <a href="/" className="inline-flex items-center rounded-full border border-white/30 bg-white/10 px-4 py-2 text-sm text-white hover:bg-white/20">← Back to Home</a>
+          <a
+            href="/"
+            className="inline-flex items-center rounded-full border border-white/30 bg-white/10 px-4 py-2 text-sm text-white hover:bg-white/20"
+          >
+            ← Back to Home
+          </a>
         </div>
         <div className="relative overflow-hidden rounded-3xl border border-white/20 ring-1 ring-brand-aqua-start/20 bg-white/90 dark:bg-white/5 backdrop-blur shadow-xl">
           <div className="absolute -inset-1 -z-10 opacity-50 blur-2xl [background:radial-gradient(800px_300px_at_50%_-80px,hsl(var(--brand-aqua-start)/.25),transparent_70%)]" />

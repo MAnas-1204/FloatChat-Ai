@@ -28,7 +28,12 @@ export default function AuthPage() {
   return (
     <div className="container py-24">
       <div className="mb-4">
-        <a href="/" className="inline-flex items-center rounded-full border border-white/30 bg-white/60 px-4 py-2 text-sm hover:bg-white">← Back to Home</a>
+        <a
+          href="/"
+          className="inline-flex items-center rounded-full border border-white/30 bg-white/60 px-4 py-2 text-sm hover:bg-white"
+        >
+          ← Back to Home
+        </a>
       </div>
       <div className="mx-auto max-w-xl rounded-3xl border border-brand-aqua-start/30 ring-1 ring-brand-aqua-start/20 bg-white/70 p-8 backdrop-blur">
         <h1 className="text-3xl font-bold tracking-tight">Account</h1>

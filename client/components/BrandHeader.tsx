@@ -141,10 +141,15 @@ export default function BrandHeader() {
           </a>
           {email && (
             <button
-              onClick={async () => { await supabase.auth.signOut(); window.location.assign('/'); }}
+              onClick={async () => {
+                await supabase.auth.signOut();
+                window.location.assign("/");
+              }}
               className={cn(
                 "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm border transition",
-                scrolled ? "border-white/20 text-white/90 hover:text-white hover:bg-white/10" : "border-foreground/10 text-foreground/80 hover:bg-white",
+                scrolled
+                  ? "border-white/20 text-white/90 hover:text-white hover:bg-white/10"
+                  : "border-foreground/10 text-foreground/80 hover:bg-white",
               )}
             >
               Logout

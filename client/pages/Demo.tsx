@@ -133,7 +133,12 @@ export default function DemoPage() {
       <main className="flex-1 pt-20">
         <div className="container py-8">
           <div className="mb-4">
-            <a href="/" className="inline-flex items-center rounded-full border border-white/30 bg-white/10 px-4 py-2 text-sm text-white hover:bg-white/20">← Back to Home</a>
+            <a
+              href="/"
+              className="inline-flex items-center rounded-full border border-white/30 bg-white/10 px-4 py-2 text-sm text-white hover:bg-white/20"
+            >
+              ← Back to Home
+            </a>
           </div>
           {/* Chat/Demo Card */}
           <div className="relative overflow-hidden rounded-3xl border border-white/20 ring-1 ring-brand-aqua-start/20 bg-white/90 dark:bg-white/5 backdrop-blur shadow-xl">
