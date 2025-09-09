@@ -1,4 +1,5 @@
 import { Github, Linkedin, Twitter } from "lucide-react";
+import Avatar from "@/components/FloatChatAvatar";
 
 const LINKS = [
   { label: "Home", href: "#home" },
@@ -13,7 +14,7 @@ export default function BrandFooter() {
     <footer className="relative border-t border-white/10 bg-[radial-gradient(800px_200px_at_50%_-40px,hsl(var(--brand-aqua-start)/0.15),transparent_70%)]">
       <div className="container grid gap-6 py-10 md:grid-cols-3 md:gap-8">
         <div>
-          <div className="flex items-center gap-2 text-lg font-semibold"><span>🌊</span>FloatChat AI</div>
+          <div className="flex items-center gap-2 text-lg font-semibold"><Avatar className="h-7 w-7"/> FloatChat AI</div>
           <p className="mt-3 text-sm text-foreground/70 max-w-sm">Ask the Ocean Anything – explore global ARGO float data with AI chat, interactive maps, and storytelling insights.</p>
           <p className="mt-2 text-xs text-foreground/60">Built for Smart India Hackathon 2025</p>
         </div>
