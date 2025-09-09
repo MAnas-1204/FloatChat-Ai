@@ -19,16 +19,6 @@ export default function AuthPage() {
     if (sessionEmail) navigate('/chat', { replace: true });
   }, [sessionEmail, navigate]);
 
-  if (!import.meta.env.VITE_SUPABASE_URL || !import.meta.env.VITE_SUPABASE_ANON_KEY) {
-    return (
-      <div className="container py-24">
-        <div className="rounded-3xl border border-brand-aqua-start/30 bg-white/70 p-8">
-          <h1 className="text-2xl font-bold">Connect Supabase</h1>
-          <p className="mt-2 text-foreground/70">Set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY to enable authentication. You can also <a className="underline" href="#open-mcp-popover">Connect to Supabase</a>.</p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="container py-24">
