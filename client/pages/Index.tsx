@@ -536,6 +536,29 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Impact / Why It Matters */}
+      <section id="impact" className="relative py-16">
+        <div className="container">
+          <div className="rounded-3xl border border-brand-aqua-start/30 dark:border-white/10 ring-1 ring-brand-aqua-start/20 dark:ring-white/10 bg-white/50 dark:bg-white/5 p-8 backdrop-blur-sm animate-fade-up">
+            <h2 className="text-center text-3xl font-bold tracking-tight inline-flex items-center gap-2 justify-center"><Sparkles className="h-6 w-6 text-brand-cyan"/> Why FloatChat Matters</h2>
+            <div className="mt-8 grid gap-6 sm:grid-cols-3">
+              <div className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/60 dark:bg-white/10 p-6 text-center">
+                <div className="text-2xl">🌊</div>
+                <div className="mt-2 text-lg font-semibold">4,000+ ARGO floats worldwide</div>
+              </div>
+              <div className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/60 dark:bg-white/10 p-6 text-center">
+                <div className="text-2xl">🤖</div>
+                <div className="mt-2 text-lg font-semibold">AI-powered interface makes complex datasets accessible</div>
+              </div>
+              <div className="rounded-2xl border border-brand-aqua-start/20 dark:border-white/10 bg-white/60 dark:bg-white/10 p-6 text-center">
+                <div className="text-2xl">🎓</div>
+                <div className="mt-2 text-lg font-semibold">For students, researchers, and innovators</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA / Contact */}
       <section id="contact" className="relative py-20">
         <div className="container rounded-3xl border border-brand-aqua-start/30 dark:border-white/10 bg-white/50 dark:bg-white/5 ring-1 ring-brand-aqua-start/20 dark:ring-white/10 overflow-hidden">
