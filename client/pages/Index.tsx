@@ -64,7 +64,7 @@ export default function Index() {
                   <Waves className="h-4 w-4" /> Futuristic Ocean AI
                 </div>
                 <h1 className="mt-5 text-4xl font-extrabold leading-tight md:text-6xl">
-                  FloatChat AI
+                  FloatChat AI — Talk to the Ocean
                 </h1>
                 <p className="mt-4 max-w-xl text-white/80 text-base md:text-lg">
                   Ask the Ocean Anything – Explore ARGO Data with AI. Chat,
@@ -74,7 +74,7 @@ export default function Index() {
                 <div className="mt-8 flex flex-wrap items-center gap-4">
                   <a
                     href="#demo"
-                    className="group relative inline-flex items-center rounded-full px-6 py-3 text-sm font-semibold text-white animate-pulse-glow"
+                    className="group relative inline-flex items-center rounded-full px-6 py-3 text-sm font-semibold text-white animate-pulse-glow hover:brightness-110"
                   >
                     <span className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end blur-md opacity-80 group-hover:opacity-100 transition" />
                     <span className="relative z-10 inline-flex items-center gap-2">
@@ -83,7 +83,7 @@ export default function Index() {
                   </a>
                   <a
                     href="#features"
-                    className="inline-flex items-center rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white/90 hover:text-white hover:border-white/60 transition"
+                    className="inline-flex items-center rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white/90 hover:text-white hover:border-white/60 transition hover:underline underline-offset-4"
                   >
                     Explore Features
                   </a>
@@ -250,31 +250,37 @@ export default function Index() {
                 icon={<MessageSquare />}
                 title="AI Chat"
                 description="Ask natural questions about the ocean and float data."
+                className="min-h-[180px]"
               />
               <FeatureCard
                 icon={<BarChart3 />}
                 title="Data Visualization"
                 description="Interactive maps & charts for fast insights."
+                className="min-h-[180px]"
               />
               <FeatureCard
                 icon={<Globe2 />}
                 title="Real Ocean Data"
                 description="Powered by ARGO and ERDDAP datasets."
+                className="min-h-[180px]"
               />
               <FeatureCard
                 icon={<Bot />}
                 title="Storytelling"
                 description="AI generates explanations and narratives."
+                className="min-h-[180px]"
               />
               <FeatureCard
                 icon={<Share2 />}
                 title="Exportable Results"
                 description="Share insights as slides or links."
+                className="min-h-[180px]"
               />
               <FeatureCard
                 icon={<Map />}
                 title="Spatial Views"
                 description="Explore float density and trajectories on map-like visuals."
+                className="min-h-[180px]"
               />
             </div>
           </div>
@@ -295,7 +301,7 @@ export default function Index() {
             </p>
             <a
               href="#demo"
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end px-6 py-3 text-sm font-semibold text-white drop-shadow-glow animate-pulse-glow"
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end px-6 py-3 text-sm font-semibold text-white drop-shadow-glow animate-pulse-glow hover:brightness-110"
             >
               <Play className="h-4 w-4" /> Launch FloatChat Demo
             </a>
@@ -344,7 +350,7 @@ export default function Index() {
                   <Waves className="h-4 w-4" /> Profiles
                 </TabsTrigger>
               </TabsList>
-              <TabsContent value="map" className="mt-4">
+              <TabsContent value="map" className="mt-4 transition-opacity duration-300 data-[state=inactive]:opacity-0 data-[state=active]:opacity-100">
                 <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-brand-aqua-start/30 ring-1 ring-brand-aqua-start/20 bg-[radial-gradient(600px_200px_at_60%_-80px,hsl(var(--brand-cyan)/.25),transparent_70%)] p-4">
                   <div className="h-full w-full rounded-lg bg-[linear-gradient(0deg,transparent_96%,hsl(var(--brand-aqua-start)/.35)_96%),linear-gradient(90deg,transparent_96%,hsl(var(--brand-aqua-end)/.35)_96%)] bg-[length:24px_24px]" />
                   <div className="pointer-events-none absolute inset-0">
@@ -369,7 +375,7 @@ export default function Index() {
                   </div>
                 </div>
               </TabsContent>
-              <TabsContent value="chart" className="mt-4">
+              <TabsContent value="chart" className="mt-4 transition-opacity duration-300 data-[state=inactive]:opacity-0 data-[state=active]:opacity-100">
                 <div className="aspect-[16/10] rounded-xl border border-brand-aqua-start/30 dark:border-white/10 ring-1 ring-brand-aqua-start/20 dark:ring-white/10 bg-white/80 dark:bg-white/5 p-4">
                   <div className="grid h-full grid-cols-12 items-end gap-1">
                     {Array.from({ length: 12 }).map((_, i) => (
@@ -385,7 +391,7 @@ export default function Index() {
                   </div>
                 </div>
               </TabsContent>
-              <TabsContent value="profiles" className="mt-4">
+              <TabsContent value="profiles" className="mt-4 transition-opacity duration-300 data-[state=inactive]:opacity-0 data-[state=active]:opacity-100">
                 <div className="aspect-[16/10] rounded-xl border border-brand-aqua-start/30 dark:border-white/10 ring-1 ring-brand-aqua-start/20 dark:ring-white/10 bg-white/80 dark:bg-white/5 p-4">
                   <svg viewBox="0 0 400 200" className="h-full w-full">
                     <defs>
