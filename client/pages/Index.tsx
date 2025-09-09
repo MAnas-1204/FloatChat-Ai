@@ -75,7 +75,7 @@ export default function Index() {
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-4">
                   <a
-                    href="#demo"
+                    href="/chat"
                     className="group relative inline-flex items-center rounded-full px-6 py-3 text-sm font-semibold text-white animate-pulse-glow hover:brightness-110"
                   >
                     <span className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end blur-md opacity-80 group-hover:opacity-100 transition" />
@@ -302,7 +302,7 @@ export default function Index() {
               questions, render maps and charts, and share results in seconds.
             </p>
             <a
-              href="#demo"
+              href="/chat"
               className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end px-6 py-3 text-sm font-semibold text-white drop-shadow-glow animate-pulse-glow hover:brightness-110"
             >
               <Play className="h-4 w-4" /> Launch FloatChat Demo
