@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Info, Sparkles, Map, Mail, User } from "lucide-react";
+import Avatar from "@/components/FloatChatAvatar";
 import { supabase } from "@/lib/supabase";
 
 const NAV = [
@@ -57,7 +58,9 @@ export default function BrandHeader() {
     >
       <div className="container flex items-center justify-between py-4">
         <a href="#home" className="group inline-flex items-center gap-2">
-          <span className="text-2xl" aria-hidden>🌊</span>
+          <span aria-hidden>
+            <Avatar className="h-7 w-7" />
+          </span>
           <span className="text-lg font-semibold tracking-tight">FloatChat <span className="text-brand-cyan">AI</span></span>
         </a>
 
