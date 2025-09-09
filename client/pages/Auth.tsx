@@ -32,7 +32,26 @@ export default function AuthPage() {
         {sessionEmail && (
           <div className="mt-2 text-sm text-foreground/70">Signed in as <span className="font-semibold">{sessionEmail}</span></div>
         )}
-        <Tabs defaultValue={sessionEmail ? 'session' : 'signin'} className="mt-6">
+
+        {!sessionEmail && (
+          <div className="mt-4 grid gap-2">
+            <button
+              onClick={async ()=>{ await supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: window.location.origin + '/auth' } }); }}
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-brand-aqua-start/30 bg-white px-5 py-2 text-sm font-semibold hover:bg-white/80"
+            >
+              Continue with Google
+            </button>
+            <button
+              onClick={async ()=>{ await supabase.auth.signInWithOAuth({ provider: 'github', options: { redirectTo: window.location.origin + '/auth' } }); }}
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-brand-aqua-start/30 bg-white px-5 py-2 text-sm font-semibold hover:bg-white/80"
+            >
+              Continue with GitHub
+            </button>
+            <div className="my-2 h-px bg-border" />
+          </div>
+        )}
+
+        <Tabs defaultValue={sessionEmail ? 'session' : 'signin'} className="mt-4">
           {!sessionEmail && (
             <TabsList className="bg-white/80 border border-white/60 rounded-xl">
               <TabsTrigger value="signin" className="data-[state=active]:text-brand-aqua-start inline-flex gap-2"><Lock className="h-4 w-4"/> Sign In</TabsTrigger>
