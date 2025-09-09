@@ -44,6 +44,7 @@ function RoutedContent() {
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/demo" element={<DemoPage />} />
           <Route path="/chat" element={<ChatPage />} />
+          <Route path="/reset" element={<ResetPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
