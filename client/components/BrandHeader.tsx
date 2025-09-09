@@ -138,7 +138,7 @@ export default function BrandHeader() {
             )}
           </a>
           <a
-            href="/demo"
+            href="/chat"
             className="group relative inline-flex items-center rounded-full px-5 py-2 text-sm font-semibold text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan/70 animate-pulse-glow"
           >
             <span className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-brand-aqua-start to-brand-aqua-end blur-md opacity-70 group-hover:opacity-90 transition" />
