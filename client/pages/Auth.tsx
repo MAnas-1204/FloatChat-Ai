@@ -8,11 +8,15 @@ export default function AuthPage() {
   const [loading, setLoading] = useState(false);
   const [sessionEmail, setSessionEmail] = useState<string | null>(null);
 
+  const navigate = useNavigate();
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => setSessionEmail(data.user?.email ?? null));
     const { data: sub } = supabase.auth.onAuthStateChange((_e, s) => setSessionEmail(s?.user?.email ?? null));
     return () => { sub.subscription.unsubscribe(); };
   }, []);
+  useEffect(() => {
+    if (sessionEmail) navigate('/chat', { replace: true });
+  }, [sessionEmail, navigate]);
 
   if (!import.meta.env.VITE_SUPABASE_URL || !import.meta.env.VITE_SUPABASE_ANON_KEY) {
     return (
@@ -36,13 +40,13 @@ export default function AuthPage() {
         {!sessionEmail && (
           <div className="mt-4 grid gap-2">
             <button
-              onClick={async ()=>{ await supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: window.location.origin + '/auth' } }); }}
+              onClick={async ()=>{ await supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: window.location.origin + '/chat' } }); }}
               className="inline-flex items-center justify-center gap-2 rounded-full border border-brand-aqua-start/30 bg-white px-5 py-2 text-sm font-semibold hover:bg-white/80"
             >
               Continue with Google
             </button>
             <button
-              onClick={async ()=>{ await supabase.auth.signInWithOAuth({ provider: 'github', options: { redirectTo: window.location.origin + '/auth' } }); }}
+              onClick={async ()=>{ await supabase.auth.signInWithOAuth({ provider: 'github', options: { redirectTo: window.location.origin + '/chat' } }); }}
               className="inline-flex items-center justify-center gap-2 rounded-full border border-brand-aqua-start/30 bg-white px-5 py-2 text-sm font-semibold hover:bg-white/80"
             >
               Continue with GitHub
@@ -99,10 +103,12 @@ function AuthForm({ mode }: { mode: 'signin' | 'signup' }) {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
         toast.success('Signed in');
+        window.location.assign('/chat');
       } else {
         const { error } = await supabase.auth.signUp({ email, password });
         if (error) throw error;
         toast.success('Signed up – check your email');
+        window.location.assign('/chat');
       }
     } catch (err: any) {
       toast.error(err.message ?? 'Auth error');
