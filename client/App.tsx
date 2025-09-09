@@ -15,6 +15,7 @@ import BrandFooter from "@/components/BrandFooter";
 import ThemeToggle from "@/components/ThemeToggle";
 import DemoPage from "./pages/Demo";
 import ChatPage from "./pages/Chat";
+import ResetPage from "./pages/Reset";
 import { useEffect } from "react";
 
 const queryClient = new QueryClient();
