@@ -12,6 +12,7 @@ import AuthPage from "./pages/Auth";
 import BrandHeader from "@/components/BrandHeader";
 import BrandFooter from "@/components/BrandFooter";
 import ThemeToggle from "@/components/ThemeToggle";
+import DemoPage from "./pages/Demo";
 
 const queryClient = new QueryClient();
 
