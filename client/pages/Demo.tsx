@@ -12,6 +12,15 @@ import {
   YAxis,
 } from "recharts";
 
+function AiAvatar() {
+  return (
+    <div className="relative inline-flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-tr from-brand-aqua-start to-brand-aqua-end text-white shadow-md ring-2 ring-white/60 dark:ring-white/20">
+      <span className="text-sm" aria-hidden>🌊</span>
+      <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-[hsl(var(--brand-cyan))] ring-1 ring-white/80" />
+    </div>
+  );
+}
+
 function TypingDots() {
   return (
     <span className="inline-flex items-center gap-1">
@@ -66,9 +75,12 @@ export default function DemoPage() {
   const IntroHeader = useMemo(
     () => (
       <div className="text-center">
-        <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-[hsl(var(--brand-ocean))] dark:text-white">
-          FloatChat AI — Ocean Insights in Real Time
-        </h1>
+        <div className="inline-flex items-center justify-center gap-3">
+          <AiAvatar />
+          <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-[hsl(var(--brand-ocean))] dark:text-white">
+            FloatChat AI — Ocean Insights in Real Time
+          </h1>
+        </div>
         <p className="mt-2 text-sm text-foreground/70 max-w-2xl mx-auto">
           Ask about ocean data and instantly visualize maps, charts, and profiles.
         </p>
@@ -105,10 +117,11 @@ export default function DemoPage() {
                   <div className="relative grid gap-4 md:grid-cols-[1fr]">
                     <div ref={listRef} className="h-[420px] overflow-y-auto rounded-xl border border-brand-aqua-start/30 dark:border-white/10 bg-[#f8f9fb] dark:bg-white/5 p-4">
                       {messages.map((m) => (
-                        <div key={m.id} className={m.role === "user" ? "flex justify-end" : "flex justify-start"}>
+                        <div key={m.id} className={"mt-2 flex items-start gap-2 " + (m.role === "user" ? "justify-end" : "justify-start") }>
+                          {m.role === "ai" && <AiAvatar />}
                           <div
                             className={
-                              "mt-2 max-w-[80%] rounded-2xl px-3 py-2 text-sm shadow transition-opacity animate-fade-up " +
+                              "max-w-[80%] rounded-2xl px-3 py-2 text-sm shadow transition-opacity animate-fade-up " +
                               (m.role === "user"
                                 ? "bg-[hsl(var(--brand-aqua-start))] text-white"
                                 : "bg-white text-[hsl(var(--brand-ocean))] dark:bg-white/10 dark:text-white")
@@ -119,8 +132,9 @@ export default function DemoPage() {
                         </div>
                       ))}
                       {isTyping && (
-                        <div className="flex justify-start">
-                          <div className="mt-3 inline-flex items-center gap-2 rounded-2xl bg-white text-[hsl(var(--brand-ocean))] dark:bg-white/10 dark:text-white px-3 py-2 text-sm shadow">
+                        <div className="mt-2 flex items-start gap-2 justify-start">
+                          <AiAvatar />
+                          <div className="inline-flex items-center gap-2 rounded-2xl bg-white text-[hsl(var(--brand-ocean))] dark:bg-white/10 dark:text-white px-3 py-2 text-sm shadow">
                             <TypingDots />
                           </div>
                         </div>
