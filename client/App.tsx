@@ -14,6 +14,7 @@ import BrandHeader from "@/components/BrandHeader";
 import BrandFooter from "@/components/BrandFooter";
 import ThemeToggle from "@/components/ThemeToggle";
 import DemoPage from "./pages/Demo";
+import ChatPage from "./pages/Chat";
 import { useEffect } from "react";
 
 const queryClient = new QueryClient();
@@ -41,6 +42,7 @@ function RoutedContent() {
           <Route path="/" element={<Index />} />
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/demo" element={<DemoPage />} />
+          <Route path="/chat" element={<ChatPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
